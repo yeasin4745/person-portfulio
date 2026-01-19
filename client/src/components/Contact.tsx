@@ -96,8 +96,8 @@ export default function Contact() {
             className="p-6 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300"
           >
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#A78BFA] flex items-center justify-center">
-                <span className="text-[#030014] font-bold">📍</span>
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#A78BFA] flex items-center justify-center" style={{backgroundColor: '#ffffff'}}>
+                <span className="text-[#030014] font-bold">🌍</span>
               </div>
               <div>
                 <h3 className="text-white font-bold">Location</h3>

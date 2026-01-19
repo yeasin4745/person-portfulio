@@ -66,7 +66,7 @@ export default function Hero() {
             transition: "transform 0.3s ease-out",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/50 to-[#030014]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/50 to-[#030014]" style={{height: '1000px'}} />
       </div>
 
       {/* Content */}
