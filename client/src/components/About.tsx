@@ -48,18 +48,14 @@ export default function About() {
 
         {/* Content Grid */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Image Placeholder */}
+          {/* Left Side - Profile Image */}
           <motion.div variants={itemVariants} className="relative">
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] p-1 border border-[#2D2847]">
-              <div className="w-full h-full bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl font-bold bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent mb-4">
-                    {PERSONAL_INFO.yearsOfExperience}
-                  </div>
-                  <p className="text-gray-300">Building & Learning</p>
-                  <p className="text-sm text-gray-400 mt-2">Profile Image Coming Soon</p>
-                </div>
-              </div>
+              <img
+                src="/images/profile.jpg"
+                alt="Yeasin's Profile"
+                className="w-full h-full object-cover rounded-xl"
+              />
             </div>
             {/* Floating accent */}
             <motion.div
