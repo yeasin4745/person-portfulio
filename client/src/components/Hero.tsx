@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { PERSONAL_INFO } from "@shared/const";
+
+const TAGLINE_WORDS = ["Student", "Programmer", "AI Explorer"];
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -15,6 +19,14 @@ export default function Hero() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Rotate tagline every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTaglineIndex((prev) => (prev + 1) % TAGLINE_WORDS.length);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const containerVariants = {
@@ -76,15 +88,32 @@ export default function Hero() {
           variants={itemVariants}
           className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight"
         >
-          Hi, I'm <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">Jenin</span>
+          Hi, I'm <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">{PERSONAL_INFO.name}</span>
         </motion.h1>
+
+        {/* Animated Tagline */}
+        <motion.div
+          variants={itemVariants}
+          className="mb-8 h-12 flex items-center justify-center"
+        >
+          <motion.p
+            key={currentTaglineIndex}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl sm:text-3xl font-semibold text-[#A78BFA]"
+          >
+            {TAGLINE_WORDS[currentTaglineIndex]}
+          </motion.p>
+        </motion.div>
 
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
           className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
         >
-          A full-stack developer passionate about creating beautiful and functional web experiences. Specializing in React, TypeScript, and modern web technologies.
+          An aspiring Full Stack Developer and AI enthusiast building innovative digital solutions with modern web technologies.
         </motion.p>
 
         {/* CTA Buttons */}

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, Linkedin, Github, ExternalLink } from "lucide-react";
-import { Socials } from "@shared/const";
+import { Mail, Linkedin, Github, ExternalLink, Facebook, Twitter } from "lucide-react";
+import { PERSONAL_INFO, SOCIALS, CODING_PROFILES } from "@shared/const";
 
 export default function Contact() {
   const { ref, inView } = useInView({
@@ -34,6 +34,10 @@ export default function Contact() {
         return <Linkedin size={24} />;
       case "github":
         return <Github size={24} />;
+      case "twitter":
+        return <Twitter size={24} />;
+      case "facebook":
+        return <Facebook size={24} />;
       default:
         return <ExternalLink size={24} />;
     }
@@ -76,10 +80,10 @@ export default function Contact() {
               <div>
                 <h3 className="text-white font-bold">Email</h3>
                 <a
-                  href="mailto:jenin@example.com"
+                  href={`mailto:${PERSONAL_INFO.email}`}
                   className="text-[#00D9FF] hover:underline"
                 >
-                  jenin@example.com
+                  {PERSONAL_INFO.email}
                 </a>
               </div>
             </div>
@@ -97,23 +101,24 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-white font-bold">Location</h3>
-                <p className="text-gray-300">India</p>
+                <p className="text-gray-300">Bangladesh</p>
               </div>
             </div>
           </motion.div>
         </div>
 
         {/* Social Links */}
-        <motion.div variants={itemVariants} className="text-center">
+        <motion.div variants={itemVariants} className="text-center mb-12">
           <h3 className="text-white font-bold mb-6">Connect with me</h3>
           <div className="flex justify-center gap-4 flex-wrap">
-            {Socials.map((social, index) => (
+            {SOCIALS.map((social: typeof SOCIALS[0], index: number) => (
               <motion.a
                 key={index}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
+                title={social.name}
                 className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] flex items-center justify-center text-[#00D9FF] hover:text-white transition-all duration-300"
               >
                 {getSocialIcon(social.name)}
@@ -122,11 +127,34 @@ export default function Contact() {
           </div>
         </motion.div>
 
+        {/* Coding Profiles */}
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <h3 className="text-white font-bold mb-6">Problem Solving Profiles</h3>
+          <div className="flex justify-center gap-4 flex-wrap">
+            {CODING_PROFILES.map((profile, index) => (
+              <motion.a
+                key={index}
+                href={profile.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#A78BFA] text-gray-300 hover:text-[#A78BFA] transition-all duration-300 flex items-center gap-2"
+              >
+                {profile.name}
+                <ExternalLink size={14} />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
         {/* CTA Button */}
-        <motion.div variants={itemVariants} className="text-center mt-12">
-          <button className="px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105">
+        <motion.div variants={itemVariants} className="text-center">
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="inline-block px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105"
+          >
             Send Me an Email
-          </button>
+          </a>
         </motion.div>
       </motion.div>
     </section>
