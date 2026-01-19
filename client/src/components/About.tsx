@@ -54,7 +54,7 @@ export default function About() {
               <img
                 src="/images/profile.jpg"
                 alt="Yeasin's Profile"
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-xl" style={{borderRadius: '100px'}}
               />
             </div>
             {/* Floating accent */}
