@@ -31,7 +31,7 @@ export default function Navbar() {
             className="flex items-center space-x-2"
           >
             <div className="w-8 h-8 bg-gradient-to-br from-[#00D9FF] to-[#A78BFA] rounded-lg flex items-center justify-center">
-              <span className="text-[#030014] font-bold text-sm">JP</span>
+              <span className="text-[#030014] font-bold text-sm">Y</span>
             </div>
             <span className="text-white font-bold text-lg hidden sm:inline">Portfolio</span>
           </motion.div>
