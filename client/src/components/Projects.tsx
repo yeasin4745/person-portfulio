@@ -34,14 +34,14 @@ export default function Projects() {
       whileHover={{ y: -10 }}
       className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300"
     >
-      {/* Image Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20 flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030014] to-transparent opacity-60" />
-        <div className="relative z-10 text-center">
-          <div className="text-4xl font-bold bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
-            {project.title.charAt(0)}
-          </div>
-        </div>
+      {/* Project Thumbnail Image */}
+      <div className="w-full h-48 relative overflow-hidden bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-40" />
       </div>
 
       {/* Content */}

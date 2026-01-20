@@ -30,7 +30,7 @@ export const FEATURED_PROJECTS = [
     stack: ["Node.js", "Google Gemini API"],
     hosting: "Render",
     liveLink: "https://t.me/yeasin_ai_bot",
-    image: "/images/project-1.jpg",
+    image: "/images/telegram-bot-thumbnail.jpg",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const FEATURED_PROJECTS = [
     stack: ["Statistics", "TensorFlow.js"],
     hosting: "Netlify",
     liveLink: "https://house-price-predction.netlify.app",
-    image: "/images/project-2.jpg",
+    image: "/images/house-price-thumbnail.jpg",
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ export const FEATURED_PROJECTS = [
     stack: ["React", "API", "Tailwind CSS"],
     hosting: "GitHub Pages",
     liveLink: "https://yeasin4745.github.io/currency-converter/",
-    image: "/images/project-3.jpg",
+    image: "/images/currency-converter-thumbnail.jpg",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ export const FEATURED_PROJECTS = [
     stack: ["TensorFlow.js", "React", "Visualization"],
     hosting: "Netlify",
     liveLink: "https://linear-regression-model.netlify.app",
-    image: "/images/project-4.jpg",
+    image: "/images/tensorflow-regression-thumbnail.jpg",
   },
 ];
 
