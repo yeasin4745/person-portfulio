@@ -74,8 +74,10 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
       >
+        {/* Left Content */}
+        <div className="flex-1 text-center lg:text-left">
         {/* Greeting */}
         <motion.div variants={itemVariants} className="mb-6">
           <span className="inline-block px-4 py-2 bg-[#0F0B2E] border border-[#00D9FF] rounded-full text-[#00D9FF] text-sm font-medium">
@@ -129,17 +131,38 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Scroll Indicator */}
+          {/* Scroll Indicator */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center lg:justify-start"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="text-[#00D9FF]"
+            >
+              <ArrowDown size={24} />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Right Illustration */}
         <motion.div
           variants={itemVariants}
-          className="flex justify-center"
+          className="flex-1 flex justify-center lg:justify-end"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-[#00D9FF]"
+            animate={{
+              y: [0, -15, 0],
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-full max-w-md lg:max-w-full"
           >
-            <ArrowDown size={24} />
+            <img
+              src="/images/hero-developer-illustration.gif"
+              alt="Developer working on multiple screens"
+              className="w-full h-auto drop-shadow-2xl"
+            />
           </motion.div>
         </motion.div>
       </motion.div>
@@ -151,7 +174,7 @@ export default function Hero() {
           rotate: [0, 5, 0],
         }}
         transition={{ duration: 6, repeat: Infinity }}
-        className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-[#A78BFA]/20 to-[#00D9FF]/20 rounded-full blur-3xl z-0"
+        className="hidden lg:block absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-[#A78BFA]/20 to-[#00D9FF]/20 rounded-full blur-3xl z-0"
       />
       <motion.div
         animate={{
@@ -159,7 +182,7 @@ export default function Hero() {
           rotate: [0, -5, 0],
         }}
         transition={{ duration: 8, repeat: Infinity }}
-        className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20 rounded-full blur-3xl z-0"
+        className="hidden lg:block absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20 rounded-full blur-3xl z-0"
       />
     </section>
   );
