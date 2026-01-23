@@ -29,8 +29,10 @@ export default function Blog() {
     },
   };
 
+  // Get the first featured post (most recent)
   const featuredPost = BLOG_POSTS.find((post) => post.featured);
-  const otherPosts = BLOG_POSTS.filter((post) => !post.featured);
+  // Get other featured posts to display in grid
+  const otherPosts = BLOG_POSTS.filter((post) => post.featured && post.id !== featuredPost?.id);
 
   return (
     <section
@@ -129,7 +131,7 @@ export default function Blog() {
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <span className="w-2 h-2 bg-[#A78BFA] rounded-full mr-3" />
-              Latest Articles
+              More Articles
             </h3>
             <motion.div
               variants={containerVariants}

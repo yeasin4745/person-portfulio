@@ -364,6 +364,19 @@ export const libraries = [
 export const BLOG_POSTS = [
   {
     id: 1,
+    title: "Building an AI-Powered Telegram Bot Using Node.js and Google Gemini API",
+    slug: "telegram-bot-nodejs-gemini",
+    summary: "Learn how to build a production-ready, AI-powered Telegram bot using Node.js and Google Gemini API. This case study covers architecture, real-world challenges, deployment strategies, and practical lessons from building a publicly accessible bot with real-user interactions.",
+    category: "AI / Machine Learning",
+    subcategory: "Web Development · Case Study",
+    publishedDate: "2026-01-23",
+    readTime: 8,
+    featured: true,
+    featuredImage: "/images/blog-telegram-bot-featured.jpg",
+    projectLink: "https://t.me/yeasin_ai_bot",
+  },
+  {
+    id: 2,
     title: "Building a House Price Prediction Model in the Browser Using TensorFlow.js",
     slug: "house-price-prediction-tensorflow",
     summary: "This article explores how machine learning models can be trained and executed directly in the browser using TensorFlow.js. It demonstrates a practical house price prediction system built with JavaScript and statistical concepts without relying on a backend ML server.",
