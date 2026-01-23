@@ -359,3 +359,20 @@ export const libraries = [
     height: 50,
   },
 ];
+
+// Blog Posts
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    title: "Building a House Price Prediction Model in the Browser Using TensorFlow.js",
+    slug: "house-price-prediction-tensorflow",
+    summary: "This article explores how machine learning models can be trained and executed directly in the browser using TensorFlow.js. It demonstrates a practical house price prediction system built with JavaScript and statistical concepts without relying on a backend ML server.",
+    category: "AI / Machine Learning",
+    subcategory: "Case Study",
+    publishedDate: "2026-01-15",
+    readTime: 7,
+    featured: true,
+    featuredImage: "/images/blog-house-price-featured.jpg",
+    projectLink: "https://house-price-predction.netlify.app",
+  },
+];
