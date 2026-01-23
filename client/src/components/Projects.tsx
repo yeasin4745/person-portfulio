@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github } from "lucide-react";
 import { FEATURED_PROJECTS, MINI_PROJECTS } from "@shared/const";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Projects() {
   const { ref, inView } = useInView({
@@ -28,11 +29,55 @@ export default function Projects() {
     },
   };
 
-  const ProjectCard = ({ project }: { project: typeof FEATURED_PROJECTS[0] }) => (
+  // Enhanced scroll animation variants
+  const projectCardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
+      rotateX: -10,
+    },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.6,
+        delay: index * 0.15,
+      },
+    }),
+    hover: {
+      y: -15,
+      boxShadow: "0 20px 40px rgba(0, 217, 255, 0.3)",
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const miniProjectVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: (index: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.1,
+      },
+    }),
+    hover: {
+      x: 10,
+      backgroundColor: "rgba(0, 217, 255, 0.1)",
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const ProjectCard = ({ project, index }: { project: typeof FEATURED_PROJECTS[0]; index: number }) => (
     <motion.div
-      variants={itemVariants}
-      whileHover={{ y: -10 }}
+      custom={index}
+      variants={projectCardVariants}
+      whileHover="hover"
       className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300"
+      style={{ perspective: "1000px" }}
     >
       {/* Project Thumbnail Image */}
       <div className="w-full h-48 relative overflow-hidden bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20">
@@ -77,13 +122,14 @@ export default function Projects() {
     </motion.div>
   );
 
-  const MiniProjectLink = ({ project }: { project: typeof MINI_PROJECTS[0] }) => (
+  const MiniProjectLink = ({ project, index }: { project: typeof MINI_PROJECTS[0]; index: number }) => (
     <motion.a
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      variants={itemVariants}
-      whileHover={{ scale: 1.05, x: 5 }}
+      custom={index}
+      variants={miniProjectVariants}
+      whileHover="hover"
       className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group"
     >
       <span className="text-gray-300 group-hover:text-[#00D9FF] transition-colors">{project.title}</span>
@@ -125,8 +171,16 @@ export default function Projects() {
             animate={inView ? "visible" : "hidden"}
             className="grid md:grid-cols-2 gap-6"
           >
-            {FEATURED_PROJECTS.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {FEATURED_PROJECTS.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={index}
+                variants={projectCardVariants}
+              >
+                <ProjectCard project={project} index={index} />
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
@@ -144,7 +198,15 @@ export default function Projects() {
             className="grid md:grid-cols-2 gap-4"
           >
             {MINI_PROJECTS.map((project, index) => (
-              <MiniProjectLink key={index} project={project} />
+              <motion.div
+                key={index}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={index}
+                variants={miniProjectVariants}
+              >
+                <MiniProjectLink project={project} index={index} />
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
