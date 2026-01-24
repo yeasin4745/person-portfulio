@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { PERSONAL_INFO, SKILLS_CATEGORIES } from "@shared/const";
+import { PERSONAL_INFO } from "@shared/const";
 
 export default function About() {
   const { ref, inView } = useInView({
@@ -54,7 +54,7 @@ export default function About() {
               <img
                 src="/images/profile.jpg"
                 alt="Yeasin's Profile"
-                className="w-full h-full object-cover" style={{borderRadius: '500px', borderStyle: 'double', borderWidth: '5px'}}
+                className="w-full h-full object-cover rounded-2xl"
               />
             </div>
             {/* Floating accent */}
@@ -65,33 +65,36 @@ export default function About() {
             />
           </motion.div>
 
-          {/* Right Side - Text */}
+          {/* Right Side - Bio and Info */}
           <motion.div variants={itemVariants} className="space-y-6">
+            {/* Bio Paragraphs */}
             {PERSONAL_INFO.bio.split("\n\n").map((paragraph, index) => (
               <p key={index} className="text-gray-300 text-lg leading-relaxed">
                 {paragraph}
               </p>
             ))}
 
-            {/* Skills Categories */}
-            <div className="space-y-4 mt-8">
-              {Object.entries(SKILLS_CATEGORIES).map(([category, skills]) => (
-                <div key={category}>
-                  <h4 className="text-[#00D9FF] font-semibold mb-2">{category}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map((skill, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-[#0F0B2E] border border-[#2D2847] text-gray-300 text-sm rounded-full hover:border-[#00D9FF] transition-colors"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            {/* Key Stats */}
+            <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#2D2847]">
+              <div>
+                <p className="text-[#00D9FF] font-bold text-2xl">2+</p>
+                <p className="text-gray-400 text-sm">Years of Experience</p>
+              </div>
+              <div>
+                <p className="text-[#00D9FF] font-bold text-2xl">15+</p>
+                <p className="text-gray-400 text-sm">Projects Completed</p>
+              </div>
+              <div>
+                <p className="text-[#A78BFA] font-bold text-2xl">Full Stack</p>
+                <p className="text-gray-400 text-sm">Development Focus</p>
+              </div>
+              <div>
+                <p className="text-[#A78BFA] font-bold text-2xl">AI/ML</p>
+                <p className="text-gray-400 text-sm">Enthusiast</p>
+              </div>
             </div>
 
+            {/* CTA Button */}
             <button className="mt-8 px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105">
               Download Resume
             </button>
