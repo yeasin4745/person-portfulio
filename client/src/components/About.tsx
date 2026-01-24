@@ -49,12 +49,12 @@ export default function About() {
         {/* Content Grid */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Side - Profile Image */}
-          <motion.div variants={itemVariants} className="relative">
-            <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] p-1 border border-[#2D2847]">
+          <motion.div variants={itemVariants} className="relative flex justify-center">
+            <div className="relative w-full max-w-xs aspect-square rounded-full overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] p-1 border border-[#2D2847]">
               <img
                 src="/images/profile.jpg"
                 alt="Yeasin's Profile"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-full"
               />
             </div>
             {/* Floating accent */}

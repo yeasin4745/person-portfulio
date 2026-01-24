@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   name: "Yeasin",
   tagline: "Student | Programmer | AI Explorer",
   title: "Full Stack Developer & AI Enthusiast",
-  email: "yeasinali4745@gmail.com",
+  email: "yeasin4745@proton.me",
   bio: "Hello! I'm Yeasin, a passionate developer. I'm an aspiring Full Stack Developer and AI enthusiast currently studying and building my skills in modern web technologies.\n\nMy journey started with curiosity about websites and has evolved into a passion for creating innovative digital solutions.\n\nI believe in the power of technology to solve real-world problems and make a positive impact.\n\nWhen I'm not coding, I read tech blogs, contribute to open-source projects, or experiment with new frameworks and tools.",
   yearsOfExperience: "2+",
   quote: '"Code is like humor. When you have to explain it, it\'s bad." — Cory House',
@@ -15,10 +15,10 @@ export const PERSONAL_INFO = {
 // Skills organized by category
 export const SKILLS_CATEGORIES = {
   "Core Web": ["HTML5", "CSS3", "JavaScript"],
-  "Backend": ["Node.js", "Express.js", "MongoDB"],
-  "Frontend": ["React.js", "Tailwind CSS", "Next.js", "Framer Motion"],
-  "AI/ML": ["TensorFlow.js", "Machine Learning"],
-  "Tools & Platforms": ["Git", "GitHub", "Render", "VS Code", "Vercel"],
+  "Backend": ["Node.js", "Express.js", "MongoDB", "Mongoose", "RESTful APIs", "JWT"],
+  "Frontend": ["React.js", "Tailwind CSS", "Next.js", "Framer Motion", "TypeScript"],
+  "AI/ML": ["TensorFlow.js", "Machine Learning", "Google Gemini API"],
+  "Tools & Platforms": ["Git", "GitHub", "Render", "VS Code", "Vercel", "Netlify"],
 };
 
 // Featured Projects
