@@ -31,8 +31,8 @@ export default function Blog() {
 
   // Get the first featured post (most recent)
   const featuredPost = BLOG_POSTS.find((post) => post.featured);
-  // Get other featured posts to display in grid
-  const otherPosts = BLOG_POSTS.filter((post) => post.featured && post.id !== featuredPost?.id);
+  // Get all non-featured posts to display in grid
+  const otherPosts = BLOG_POSTS.filter((post) => !post.featured);
 
   return (
     <section

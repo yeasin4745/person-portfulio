@@ -388,4 +388,17 @@ export const BLOG_POSTS = [
     featuredImage: "/images/blog-house-price-featured.jpg",
     projectLink: "https://house-price-predction.netlify.app",
   },
+  {
+    id: 3,
+    title: "Building a Real-Time Currency Converter Web App Using JavaScript",
+    slug: "currency-converter-javascript",
+    summary: "Discover how to build a modern, real-time currency converter web application using vanilla JavaScript and public APIs. This case study covers API integration, asynchronous programming, responsive UI design, and practical lessons from building a useful tool with a minimal tech stack.",
+    category: "Web Development",
+    subcategory: "Frontend · Case Study",
+    publishedDate: "2026-01-24",
+    readTime: 6,
+    featured: false,
+    featuredImage: "/images/blog-currency-converter-featured.jpg",
+    projectLink: "https://yeasin4745.github.io/currency-converter/",
+  },
 ];
