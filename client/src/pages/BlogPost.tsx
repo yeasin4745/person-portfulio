@@ -3,6 +3,7 @@ import { Link, useRoute } from "wouter";
 import { ArrowLeft, Clock, Tag, ExternalLink } from "lucide-react";
 import { BLOG_POSTS } from "@shared/const";
 import { Streamdown } from "streamdown";
+import ShareButtons from "@/components/ShareButtons";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:slug");
@@ -107,6 +108,13 @@ export default function BlogPost() {
         <div className="prose prose-invert max-w-none mb-12">
           <Streamdown>{post.summary}</Streamdown>
         </div>
+
+        {/* Share Buttons */}
+        <ShareButtons
+          title={post.title}
+          url={typeof window !== "undefined" ? window.location.href : ""}
+          description={post.summary}
+        />
 
         {/* Call to Action */}
         <motion.div
