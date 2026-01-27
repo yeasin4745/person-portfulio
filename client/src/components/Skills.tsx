@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Frontend_skill, Backend_skill, DevTools, libraries } from "@shared/const";
 import TechStackAnimation from "./TechStackAnimation";
+import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 
 export default function Skills() {
   const { ref, inView } = useInView({
@@ -28,24 +29,55 @@ export default function Skills() {
     },
   };
 
-  const SkillCard = ({ skill }: { skill: (typeof Frontend_skill)[0] }) => (
-    <motion.div
-      variants={itemVariants}
-      whileHover={{ scale: 1.1, y: -5 }}
-      className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group cursor-pointer"
-    >
-      <div className="relative mb-3">
-        <img
-          src={skill.Image}
-          alt={skill.skill_name}
-          width={skill.width}
-          height={skill.height}
-          className="group-hover:drop-shadow-[0_0_8px_rgba(0,217,255,0.6)] transition-all duration-300"
+  const SkillCard = ({ skill, index }: { skill: (typeof Frontend_skill)[0]; index: number }) => {
+    const { ref: cardRef, scrollProgress } = useScrollTrigger({ threshold: 0.3 });
+
+    // Calculate rotation based on scroll progress
+    const rotateX = (scrollProgress - 0.5) * 20;
+    const rotateY = ((index % 2) - 0.5) * 10;
+    const scale = 0.9 + scrollProgress * 0.1;
+    const opacity = 0.7 + scrollProgress * 0.3;
+
+    return (
+      <motion.div
+        ref={cardRef as any}
+        variants={itemVariants}
+        whileHover={{ scale: 1.15, y: -8 }}
+        style={{
+          rotateX: rotateX,
+          rotateY: rotateY,
+          scale: scale,
+          opacity: opacity,
+        }}
+        className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group cursor-pointer"
+      >
+        {/* Glow effect on scroll */}
+        <div
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle at center, rgba(0, 217, 255, ${scrollProgress * 0.3}) 0%, transparent 70%)`,
+            pointerEvents: "none",
+          }}
         />
-      </div>
-      <p className="text-gray-300 text-sm text-center font-medium">{skill.skill_name}</p>
-    </motion.div>
-  );
+
+        <div className="relative mb-3 z-10">
+          <img
+            src={skill.Image}
+            alt={skill.skill_name}
+            width={skill.width}
+            height={skill.height}
+            className="group-hover:drop-shadow-[0_0_8px_rgba(0,217,255,0.6)] transition-all duration-300"
+            style={{
+              filter: `drop-shadow(0 0 ${scrollProgress * 12}px rgba(0, 217, 255, ${scrollProgress * 0.5}))`,
+            }}
+          />
+        </div>
+        <p className="text-gray-300 text-sm text-center font-medium relative z-10">
+          {skill.skill_name}
+        </p>
+      </motion.div>
+    );
+  };
 
   const SkillCategory = ({ title, skills }: { title: string; skills: typeof Frontend_skill }) => (
     <motion.div variants={itemVariants} className="mb-12">
@@ -60,7 +92,7 @@ export default function Skills() {
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
       >
         {skills.map((skill: (typeof Frontend_skill)[0], index: number) => (
-          <SkillCard key={index} skill={skill} />
+          <SkillCard key={index} skill={skill} index={index} />
         ))}
       </motion.div>
     </motion.div>
