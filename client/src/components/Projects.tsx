@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github } from "lucide-react";
 import { FEATURED_PROJECTS, MINI_PROJECTS } from "@shared/const";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import CodingAnimation from "./CodingAnimation";
 
 export default function Projects() {
   const { ref, inView } = useInView({
@@ -141,12 +142,21 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden"
     >
+      {/* 3D Coding Animation Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <CodingAnimation />
+        {/* Overlay gradient to make content readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/70 via-[#030014]/50 to-[#030014]/70" />
+      </div>
+
+      {/* Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
+        className="relative z-10"
       >
         {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-16">
