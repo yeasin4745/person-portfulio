@@ -4,6 +4,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { FEATURED_PROJECTS, MINI_PROJECTS } from "@shared/const";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import CodingAnimation from "./CodingAnimation";
+import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 
 export default function Projects() {
   const { ref, inView } = useInView({
@@ -72,71 +73,120 @@ export default function Projects() {
     },
   };
 
-  const ProjectCard = ({ project, index }: { project: typeof FEATURED_PROJECTS[0]; index: number }) => (
-    <motion.div
-      custom={index}
-      variants={projectCardVariants}
-      whileHover="hover"
-      className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300"
-      style={{ perspective: "1000px" }}
-    >
-      {/* Project Thumbnail Image */}
-      <div className="w-full h-48 relative overflow-hidden bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+  const ProjectCard = ({ project, index }: { project: typeof FEATURED_PROJECTS[0]; index: number }) => {
+    const { ref: cardRef, scrollProgress } = useScrollTrigger({ threshold: 0.3 });
+
+    // Calculate scroll-based transformations
+    const rotateX = (scrollProgress - 0.5) * 15;
+    const rotateY = ((index % 2) - 0.5) * 8;
+    const scale = 0.95 + scrollProgress * 0.08;
+    const opacity = 0.8 + scrollProgress * 0.2;
+    const translateY = (1 - scrollProgress) * 20;
+
+    return (
+      <motion.div
+        custom={index}
+        variants={projectCardVariants}
+        whileHover="hover"
+        ref={cardRef as any}
+        style={{
+          rotateX: rotateX,
+          rotateY: rotateY,
+          scale: scale,
+          opacity: opacity,
+          y: translateY,
+        }}
+        className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300"
+      >
+        {/* Scroll-based glow effect */}
+        <div
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle at center, rgba(0, 217, 255, ${scrollProgress * 0.25}) 0%, transparent 70%)`,
+            pointerEvents: "none",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-40" />
-      </div>
 
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-        <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+        {/* Project Thumbnail Image */}
+        <div className="w-full h-48 relative overflow-hidden bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            style={{
+              filter: `brightness(${0.9 + scrollProgress * 0.15})`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-40" />
+        </div>
 
-        {/* Stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.stack.map((tech, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-[#0F0B2E] border border-[#2D2847] text-[#00D9FF] text-xs rounded"
+        {/* Content */}
+        <div className="p-6 relative z-10">
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#00D9FF] transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+
+          {/* Stack */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.stack.map((tech, index) => (
+              <span
+                key={index}
+                className="px-2 py-1 bg-[#0F0B2E] border border-[#2D2847] text-[#00D9FF] text-xs rounded"
+                style={{
+                  opacity: 0.7 + scrollProgress * 0.3,
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div className="flex gap-3">
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all text-sm"
             >
-              {tech}
-            </span>
-          ))}
+              <ExternalLink size={16} />
+              Live
+            </a>
+          </div>
         </div>
+      </motion.div>
+    );
+  };
 
-        {/* Links */}
-        <div className="flex gap-3">
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all text-sm"
-          >
-            <ExternalLink size={16} />
-            Live
-          </a>
-        </div>
-      </div>
-    </motion.div>
-  );
+  const MiniProjectLink = ({ project, index }: { project: typeof MINI_PROJECTS[0]; index: number }) => {
+    const { ref: cardRef, scrollProgress } = useScrollTrigger({ threshold: 0.3 });
 
-  const MiniProjectLink = ({ project, index }: { project: typeof MINI_PROJECTS[0]; index: number }) => (
-    <motion.a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      custom={index}
-      variants={miniProjectVariants}
-      whileHover="hover"
-      className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group"
-    >
-      <span className="text-gray-300 group-hover:text-[#00D9FF] transition-colors">{project.title}</span>
-      <ExternalLink size={16} className="text-[#A78BFA] group-hover:text-[#00D9FF] transition-colors" />
-    </motion.a>
-  );
+    const scale = 0.95 + scrollProgress * 0.08;
+    const opacity = 0.8 + scrollProgress * 0.2;
+    const translateX = (1 - scrollProgress) * -15;
+
+    return (
+      <motion.a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        custom={index}
+        variants={miniProjectVariants}
+        whileHover="hover"
+        ref={cardRef as any}
+        style={{
+          scale: scale,
+          opacity: opacity,
+          x: translateX,
+        }}
+        className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group"
+      >
+        <span className="text-gray-300 group-hover:text-[#00D9FF] transition-colors">{project.title}</span>
+        <ExternalLink size={16} className="text-[#A78BFA] group-hover:text-[#00D9FF] transition-colors" />
+      </motion.a>
+    );
+  };
 
   return (
     <section
