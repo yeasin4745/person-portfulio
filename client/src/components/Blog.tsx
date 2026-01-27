@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight, Clock, Tag, BookOpen, Zap } from "lucide-react";
 import { Link } from "wouter";
 import { BLOG_POSTS } from "@shared/const";
 
@@ -129,61 +129,75 @@ export default function Blog() {
         {/* Other Posts */}
         {otherPosts.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <span className="w-2 h-2 bg-[#A78BFA] rounded-full mr-3" />
-              More Articles
-            </h3>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-white mb-2 flex items-center">
+                <span className="w-2 h-2 bg-[#A78BFA] rounded-full mr-3" />
+                More Articles
+              </h3>
+              <p className="text-gray-400 text-sm ml-5">
+                Explore other technical deep-dives and case studies
+              </p>
+            </div>
+            
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              className="grid md:grid-cols-2 gap-6"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {otherPosts.map((post, index) => (
                 <Link key={post.id} href={`/blog/${post.slug}`}>
                   <motion.div
                     variants={itemVariants}
-                    whileHover={{ y: -5 }}
-                    className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 cursor-pointer h-full"
+                    whileHover={{ y: -8 }}
+                    className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 cursor-pointer h-full flex flex-col"
                   >
                     {/* Post Image */}
-                    <div className="w-full h-40 relative overflow-hidden bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20">
+                    <div className="w-full h-48 relative overflow-hidden bg-gradient-to-br from-[#00D9FF]/20 to-[#A78BFA]/20">
                       <img
                         src={post.featuredImage}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-50" />
+                      
+                      {/* Category Badge Overlay */}
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-1 bg-[#00D9FF]/90 backdrop-blur-sm text-[#030014] text-xs font-semibold rounded-full flex items-center gap-1">
+                          <BookOpen size={12} />
+                          {post.category.split(" / ")[0]}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-4">
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        <span className="px-2 py-0.5 bg-[#0F0B2E] border border-[#2D2847] text-[#00D9FF] text-xs rounded">
-                          {post.category}
-                        </span>
-                      </div>
-
-                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-[#00D9FF] transition-colors line-clamp-2">
+                    <div className="p-5 flex flex-col flex-grow">
+                      {/* Title */}
+                      <h4 className="text-base font-bold text-white mb-2 group-hover:text-[#00D9FF] transition-colors line-clamp-2">
                         {post.title}
                       </h4>
 
-                      <p className="text-gray-400 text-sm mb-3 line-clamp-2">
-                        {post.summary}
+                      {/* Description - New Feature */}
+                      <p className="text-gray-400 text-sm mb-4 line-clamp-3 flex-grow">
+                        {post.description || post.summary}
                       </p>
 
                       {/* Meta Info */}
-                      <div className="flex items-center gap-3 text-gray-500 text-xs">
+                      <div className="flex items-center justify-between text-gray-500 text-xs mb-4 pt-3 border-t border-[#2D2847]">
                         <span className="flex items-center gap-1">
-                          <Clock size={14} />
+                          <Clock size={13} />
                           {post.readTime} min
                         </span>
-                        <span>
-                          {new Date(post.publishedDate).toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                          })}
+                        <span className="flex items-center gap-1">
+                          <Zap size={13} className="text-[#A78BFA]" />
+                          {post.readTime > 7 ? "Deep Dive" : post.readTime > 5 ? "Medium" : "Quick"}
                         </span>
+                      </div>
+
+                      {/* Read More Link */}
+                      <div className="flex items-center gap-2 text-[#00D9FF] font-semibold text-sm group-hover:gap-3 transition-all">
+                        Read More
+                        <ArrowRight size={16} />
                       </div>
                     </div>
                   </motion.div>
