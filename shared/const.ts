@@ -364,6 +364,80 @@ export const libraries = [
 export const BLOG_POSTS = [
   {
     id: 1,
+    title: "মেশটক: ইন্টারনেট-মুক্ত স্থানীয় যোগাযোগের নতুন দিগন্ত",
+    slug: "meshtalk-offline-local-communication",
+    summary: "মেশটক (MeshTalk) একটি বিকেন্দ্রীভূত লোকাল নেটওয়ার্ক কমিউনিকেশন প্ল্যাটফর্ম যা বৈশ্বিক ইন্টারনেট সংযোগ ছাড়াই একটি নির্দিষ্ট এলাকার মধ্যে থাকা ডিভাইসগুলোর মধ্যে দ্রুত, নিরাপদ এবং সাশ্রয়ী যোগাযোগ নিশ্চিত করে।",
+    category: "Local Network Communication",
+    subcategory: "Technology · Innovation",
+    publishedDate: "2026-01-27",
+    readTime: 5,
+    featured: true,
+    featuredImage: "/images/blog-meshtalk-featured.jpg",
+    projectLink: "https://github.com/yeasin4745/meshtalk",
+    content: `## মেশটক: ইন্টারনেট-মুক্ত স্থানীয় যোগাযোগের নতুন দিগন্ত
+
+### সংক্ষিপ্ত পরিচয়
+
+মেশটক (MeshTalk) হলো একটি বিকেন্দ্রীভূত লোকাল নেটওয়ার্ক কমিউনিকেশন প্ল্যাটফর্ম, যা বৈশ্বিক ইন্টারনেট সংযোগ ছাড়াই একটি নির্দিষ্ট এলাকার মধ্যে থাকা ডিভাইসগুলোর মধ্যে দ্রুত, নিরাপদ এবং সাশ্রয়ী যোগাযোগ নিশ্চিত করে। এটি প্রচলিত সেন্ট্রালাইজড সিস্টেমের বিকল্প হিসেবে কাজ করে এবং ব্যবহারকারীর তথ্যের পূর্ণ নিয়ন্ত্রণ নিজের কাছে রাখে।
+
+### কীভাবে কাজ করে?
+
+মেশটক সিস্টেমটি 'ক্লায়েন্ট-সার্ভার' আর্কিটেকচারে কাজ করে:
+
+**হোস্ট (Host):** একটি ডিভাইসে Node.js সার্ভার চালু করে সেটিকে নেটওয়ার্কের 'মস্তিষ্ক' হিসেবে তৈরি করা হয়।
+
+**পার্টিসিপেন্ট (Participant):** অন্য ব্যবহারকারীরা কোনো অ্যাপ ছাড়াই কেবল ব্রাউজারের মাধ্যমে হোস্টের লোকাল আইপি ঠিকানায় প্রবেশ করে যুক্ত হন।
+
+**যোগাযোগ:** WebSocket প্রযুক্তির মাধ্যমে বার্তাগুলো লোকাল নেটওয়ার্কের বাইরে না গিয়েই সরাসরি সবার কাছে পৌঁছে যায়।
+
+### প্রধান সুবিধাসমূহ
+
+#### ১. সম্পূর্ণ প্রাইভেসি
+ডেটা কোনো তৃতীয় পক্ষের সার্ভারে যায় না, ফলে নজরদারির ভয় থাকে না। আপনার সমস্ত যোগাযোগ সম্পূর্ণভাবে আপনার নিয়ন্ত্রণে থাকে।
+
+#### ২. শূন্য খরচ
+কোনো ইন্টারনেট ব্যান্ডউইথ বা ডেটা প্যাকের প্রয়োজন হয় না। শুধুমাত্র একটি স্থানীয় নেটওয়ার্ক সংযোগ যথেষ্ট।
+
+#### ৩. অতি দ্রুত
+ল্যাটেন্সি বা বিলম্ব প্রায় শূন্য (মিলিসেকেন্ডের মধ্যে ডেলিভারি)। এটি বৃহৎ ফাইল শেয়ারিং এবং রিয়েল-টাইম যোগাযোগের জন্য আদর্শ।
+
+#### ৪. দুর্যোগে কার্যকর
+ইন্টারনেট ব্ল্যাকআউট বা প্রাকৃতিক দুর্যোগের সময়ও এটি সক্রিয় থাকে। জরুরি পরিস্থিতিতে যোগাযোগ ব্যবস্থা নিশ্চিত করে।
+
+### ব্যবহারের ক্ষেত্রসমূহ
+
+#### শিক্ষা প্রতিষ্ঠান
+ক্যাম্পাস বা ক্লাসরুমে নোট শেয়ারিং ও আলোচনার জন্য। শিক্ষার্থীরা সহজেই একে অপরের সাথে ফাইল এবং ধারণা বিনিময় করতে পারে।
+
+#### কর্পোরেট অফিস
+ইন্টারনেট না থাকলেও অভ্যন্তরীণ গোপনীয় ফাইল ও বার্তা আদান-প্রদান নিশ্চিত করতে। সংবেদনশীল তথ্য সুরক্ষিত রাখে।
+
+#### জরুরি সেবা
+হাসপাতালে ডাক্তার-নার্স যোগাযোগ এবং দুর্যোগপূর্ণ এলাকায় উদ্ধার কার্যক্রম সমন্বয়ে। দ্রুত সিদ্ধান্ত গ্রহণে সহায়তা করে।
+
+### প্রযুক্তি স্ট্যাক
+
+- **ব্যাকএন্ড:** Node.js
+- **ফ্রন্টএন্ড:** HTML, CSS, JavaScript
+- **রিয়েল-টাইম যোগাযোগ:** WebSocket / Socket.io
+- **আর্কিটেকচার:** ক্লায়েন্ট-সার্ভার মডেল
+
+### ভবিষ্যৎ রোডম্যাপ
+
+প্রজেক্টটির উন্নয়নে বেশ কয়েকটি ধাপ পরিকল্পনা করা হয়েছে:
+
+**ধাপ ২:** ফাইল শেয়ারিং (PDF, ছবি) এবং এন্ড-টু-এন্ড এনক্রিপশন যুক্ত করা।
+
+**ধাপ ৩:** এআই-চালিত অটো রেসপন্স (IRS) ও নেটিভ মোবাইল অ্যাপ তৈরি।
+
+**ধাপ ৪:** ভয়েস ও ভিডিও কলিং সুবিধা এবং সম্পূর্ণ একটি ইকোসিস্টেম গড়ে তোলা।
+
+### উপসংহার
+
+মেশটক কেবল একটি সফটওয়্যার নয়, এটি যোগাযোগের একটি নতুন দর্শন যা ডিজিটাল সার্বভৌমত্ব নিশ্চিত করে। একটি বিশ্বে যেখানে ডেটা গোপনীয়তা ক্রমবর্ধমান গুরুত্বপূর্ণ হয়ে উঠছে, মেশটক একটি শক্তিশালী সমাধান প্রদান করে যা সকলের জন্য নিরাপদ এবং সাশ্রয়ী যোগাযোগ নিশ্চিত করে।`,
+  },
+  {
+    id: 2,
     title: "Building an AI-Powered Telegram Bot Using Node.js and Google Gemini API",
     slug: "telegram-bot-nodejs-gemini",
     summary: "Learn how to build a production-ready, AI-powered Telegram bot using Node.js and Google Gemini API. This case study covers architecture, real-world challenges, deployment strategies, and practical lessons from building a publicly accessible bot with real-user interactions.",
@@ -371,12 +445,12 @@ export const BLOG_POSTS = [
     subcategory: "Web Development · Case Study",
     publishedDate: "2026-01-23",
     readTime: 8,
-    featured: true,
+    featured: false,
     featuredImage: "/images/blog-telegram-bot-featured.jpg",
     projectLink: "https://t.me/yeasin_ai_bot",
   },
   {
-    id: 2,
+    id: 4,
     title: "Building a House Price Prediction Model in the Browser Using TensorFlow.js",
     slug: "house-price-prediction-tensorflow",
     summary: "This article explores how machine learning models can be trained and executed directly in the browser using TensorFlow.js. It demonstrates a practical house price prediction system built with JavaScript and statistical concepts without relying on a backend ML server.",
@@ -384,12 +458,12 @@ export const BLOG_POSTS = [
     subcategory: "Case Study",
     publishedDate: "2026-01-15",
     readTime: 7,
-    featured: true,
+    featured: false,
     featuredImage: "/images/blog-house-price-featured.jpg",
     projectLink: "https://house-price-predction.netlify.app",
   },
   {
-    id: 3,
+    id: 5,
     title: "Building a Real-Time Currency Converter Web App Using JavaScript",
     slug: "currency-converter-javascript",
     summary: "Discover how to build a modern, real-time currency converter web application using vanilla JavaScript and public APIs. This case study covers API integration, asynchronous programming, responsive UI design, and practical lessons from building a useful tool with a minimal tech stack.",
