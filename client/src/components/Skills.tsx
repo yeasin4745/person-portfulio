@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Frontend_skill, Backend_skill, DevTools, libraries } from "@shared/const";
+import TechStackAnimation from "./TechStackAnimation";
 
 export default function Skills() {
   const { ref, inView } = useInView({
@@ -69,12 +70,21 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden"
     >
+      {/* 3D Tech Stack Animation Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <TechStackAnimation />
+        {/* Overlay gradient to make content readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/80 via-[#030014]/60 to-[#030014]/80" />
+      </div>
+
+      {/* Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
+        className="relative z-10"
       >
         {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-16">
