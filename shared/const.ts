@@ -1,5 +1,5 @@
-export const COOKIE_NAME = "app_session_id";
 export const ONE_YEAR_MS = 1000 * 60 * 60 * 24 * 365;
+export const COOKIE_NAME = "auth_token";
 
 // Personal Information
 export const PERSONAL_INFO = {
@@ -249,85 +249,96 @@ export const Frontend_skill = [
   {
     skill_name: "Type Script",
     Image: "/images/ts.png",
+    width: 60,
+    height: 60,
+  },
+  {
+    skill_name: "Next js",
+    Image: "/images/next.png",
     width: 50,
     height: 50,
   },
   {
-    skill_name: "Next js 13",
-    Image: "/images/next.png",
-    width: 55,
-    height: 55,
+    skill_name: "Framer Motion",
+    Image: "/images/framer.png",
+    width: 50,
+    height: 50,
   },
 ];
 
 export const Backend_skill = [
   {
-    skill_name: "Django",
-    Image: "/images/django.svg",
-    width: 60,
-    height: 60,
-  },
-
-  {
-    skill_name: "Postger SQL",
-    Image: "/images/postger.png",
+    skill_name: "Node js",
+    Image: "/images/node-js.png",
     width: 50,
     height: 50,
   },
   {
-    skill_name: "My SQL",
-    Image: "/images/mysql.png",
-    width: 45,
-    height: 45,
+    skill_name: "Express js",
+    Image: "/images/express.png",
+    width: 50,
+    height: 50,
+  },
+  {
+    skill_name: "Mongo db",
+    Image: "/images/mongodb.png",
+    width: 50,
+    height: 50,
+  },
+  {
+    skill_name: "Firebase",
+    Image: "/images/firebase.png",
+    width: 50,
+    height: 50,
   },
   {
     skill_name: "Supabase",
-    Image: "/images/supabase.svg",
-    width: 40,
-    height: 40,
+    Image: "/images/supabase.png",
+    width: 50,
+    height: 50,
   },
   {
-    skill_name: "Fire base",
-    Image: "/images/Firebase.png",
-    width: 35,
-    height: 35,
+    skill_name: "PostgreSQL",
+    Image: "/images/postgresql.png",
+    width: 50,
+    height: 50,
   },
 ];
 
 export const DevTools = [
   {
-    skill_name: "GitHub",
-    Image: "/images/gitwhite.png",
+    skill_name: "Git",
+    Image: "/images/git.png",
     width: 50,
     height: 50,
   },
   {
-    skill_name: "Vercel",
-    Image: "/images/vercel.svg",
+    skill_name: "GitHub",
+    Image: "/images/github.svg",
+    width: 50,
+    height: 50,
+  },
+  {
+    skill_name: "VS Code",
+    Image: "/images/vscode.png",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Figma",
     Image: "/images/figma.png",
-    width: 40,
-    height: 40,
-  },
-  {
-    skill_name: "Railway",
-    Image: "/images/railway.svg",
     width: 50,
     height: 50,
   },
   {
-    skill_name: "VS Code",
-    Image: "/images/vs.svg",
+    skill_name: "Docker",
+    Image: "/images/docker.png",
     width: 50,
     height: 50,
   },
   {
-    skill_name: "ChatGPT",
-    Image: "/images/chatgpt.svg",
+    skill_name: "Postman",
+    Image: "/images/postman.png",
     width: 50,
     height: 50,
   },
@@ -335,26 +346,38 @@ export const DevTools = [
 
 export const libraries = [
   {
-    skill_name: "Framer Motion",
-    Image: "/images/framer.png",
+    skill_name: "Redux",
+    Image: "/images/redux.png",
     width: 50,
     height: 50,
   },
   {
-    skill_name: "React Icon",
-    Image: "/images/icons.svg",
-    width: 60,
-    height: 60,
+    skill_name: "React Query",
+    Image: "/images/reactquery.png",
+    width: 50,
+    height: 50,
   },
   {
-    skill_name: "JWT",
-    Image: "/images/jwt.svg",
-    width: 60,
-    height: 60,
+    skill_name: "Axios",
+    Image: "/images/axios.png",
+    width: 50,
+    height: 50,
   },
   {
-    skill_name: "ThreeJs",
-    Image: "/images/threejs.png",
+    skill_name: "Socket.io",
+    Image: "/images/socketio.png",
+    width: 50,
+    height: 50,
+  },
+  {
+    skill_name: "Stripe",
+    Image: "/images/stripe.webp",
+    width: 50,
+    height: 50,
+  },
+  {
+    skill_name: "TensorFlow",
+    Image: "/images/tensorflow.png",
     width: 50,
     height: 50,
   },
@@ -364,9 +387,9 @@ export const libraries = [
 export const BLOG_POSTS = [
   {
     id: 1,
-    title: "মেশটক: ইন্টারনেট-মুক্ত স্থানীয় যোগাযোগের নতুন দিগন্ত",
+    title: "MeshTalk: A New Era of Internet-Free Local Communication",
     slug: "meshtalk-offline-local-communication",
-    summary: "মেশটক (MeshTalk) একটি বিকেন্দ্রীভূত লোকাল নেটওয়ার্ক কমিউনিকেশন প্ল্যাটফর্ম যা বৈশ্বিক ইন্টারনেট সংযোগ ছাড়াই একটি নির্দিষ্ট এলাকার মধ্যে থাকা ডিভাইসগুলোর মধ্যে দ্রুত, নিরাপদ এবং সাশ্রয়ী যোগাযোগ নিশ্চিত করে।",
+    summary: "MeshTalk is a decentralized local network communication platform that enables fast, secure, and cost-effective communication between devices within a specific area without requiring global internet connectivity.",
     category: "Local Network Communication",
     subcategory: "Technology · Innovation",
     publishedDate: "2026-01-27",
@@ -374,67 +397,101 @@ export const BLOG_POSTS = [
     featured: true,
     featuredImage: "/images/blog-meshtalk-featured.jpg",
     projectLink: "https://github.com/yeasin4745/meshtalk",
-    content: `## মেশটক: ইন্টারনেট-মুক্ত স্থানীয় যোগাযোগের নতুন দিগন্ত
+    content: `## MeshTalk: A New Era of Internet-Free Local Communication
 
-### সংক্ষিপ্ত পরিচয়
+### Introduction
 
-মেশটক (MeshTalk) হলো একটি বিকেন্দ্রীভূত লোকাল নেটওয়ার্ক কমিউনিকেশন প্ল্যাটফর্ম, যা বৈশ্বিক ইন্টারনেট সংযোগ ছাড়াই একটি নির্দিষ্ট এলাকার মধ্যে থাকা ডিভাইসগুলোর মধ্যে দ্রুত, নিরাপদ এবং সাশ্রয়ী যোগাযোগ নিশ্চিত করে। এটি প্রচলিত সেন্ট্রালাইজড সিস্টেমের বিকল্প হিসেবে কাজ করে এবং ব্যবহারকারীর তথ্যের পূর্ণ নিয়ন্ত্রণ নিজের কাছে রাখে।
+MeshTalk is a decentralized local network communication platform that enables fast, secure, and cost-effective communication between devices within a specific area without requiring global internet connectivity. It serves as an alternative to traditional centralized systems while maintaining complete user control over data and information.
 
-### কীভাবে কাজ করে?
+### How It Works
 
-মেশটক সিস্টেমটি 'ক্লায়েন্ট-সার্ভার' আর্কিটেকচারে কাজ করে:
+MeshTalk operates on a client-server architecture:
 
-**হোস্ট (Host):** একটি ডিভাইসে Node.js সার্ভার চালু করে সেটিকে নেটওয়ার্কের 'মস্তিষ্ক' হিসেবে তৈরি করা হয়।
+**Host:** A device runs a Node.js server that acts as the "brain" of the network, managing all communications and connections.
 
-**পার্টিসিপেন্ট (Participant):** অন্য ব্যবহারকারীরা কোনো অ্যাপ ছাড়াই কেবল ব্রাউজারের মাধ্যমে হোস্টের লোকাল আইপি ঠিকানায় প্রবেশ করে যুক্ত হন।
+**Participants:** Other users can join by simply accessing the host's local IP address through their browser without needing any additional applications.
 
-**যোগাযোগ:** WebSocket প্রযুক্তির মাধ্যমে বার্তাগুলো লোকাল নেটওয়ার্কের বাইরে না গিয়েই সরাসরি সবার কাছে পৌঁছে যায়।
+**Communication:** Messages are transmitted through WebSocket technology, ensuring instant delivery within the local network without any data leaving the network boundaries.
 
-### প্রধান সুবিধাসমূহ
+### Key Features and Benefits
 
-#### ১. সম্পূর্ণ প্রাইভেসি
-ডেটা কোনো তৃতীয় পক্ষের সার্ভারে যায় না, ফলে নজরদারির ভয় থাকে না। আপনার সমস্ত যোগাযোগ সম্পূর্ণভাবে আপনার নিয়ন্ত্রণে থাকে।
+#### 1. Complete Privacy
 
-#### ২. শূন্য খরচ
-কোনো ইন্টারনেট ব্যান্ডউইথ বা ডেটা প্যাকের প্রয়োজন হয় না। শুধুমাত্র একটি স্থানীয় নেটওয়ার্ক সংযোগ যথেষ্ট।
+Data never reaches third-party servers, eliminating surveillance concerns. All communications remain under your complete control and ownership.
 
-#### ৩. অতি দ্রুত
-ল্যাটেন্সি বা বিলম্ব প্রায় শূন্য (মিলিসেকেন্ডের মধ্যে ডেলিভারি)। এটি বৃহৎ ফাইল শেয়ারিং এবং রিয়েল-টাইম যোগাযোগের জন্য আদর্শ।
+#### 2. Zero Cost
 
-#### ৪. দুর্যোগে কার্যকর
-ইন্টারনেট ব্ল্যাকআউট বা প্রাকৃতিক দুর্যোগের সময়ও এটি সক্রিয় থাকে। জরুরি পরিস্থিতিতে যোগাযোগ ব্যবস্থা নিশ্চিত করে।
+No internet bandwidth or data plans required. Only a local network connection is necessary, making it extremely economical.
 
-### ব্যবহারের ক্ষেত্রসমূহ
+#### 3. Lightning Fast
 
-#### শিক্ষা প্রতিষ্ঠান
-ক্যাম্পাস বা ক্লাসরুমে নোট শেয়ারিং ও আলোচনার জন্য। শিক্ষার্থীরা সহজেই একে অপরের সাথে ফাইল এবং ধারণা বিনিময় করতে পারে।
+Near-zero latency with message delivery in milliseconds. Perfect for large file sharing and real-time communication requirements.
 
-#### কর্পোরেট অফিস
-ইন্টারনেট না থাকলেও অভ্যন্তরীণ গোপনীয় ফাইল ও বার্তা আদান-প্রদান নিশ্চিত করতে। সংবেদনশীল তথ্য সুরক্ষিত রাখে।
+#### 4. Disaster-Resilient
 
-#### জরুরি সেবা
-হাসপাতালে ডাক্তার-নার্স যোগাযোগ এবং দুর্যোগপূর্ণ এলাকায় উদ্ধার কার্যক্রম সমন্বয়ে। দ্রুত সিদ্ধান্ত গ্রহণে সহায়তা করে।
+Remains operational during internet blackouts and natural disasters. Ensures communication continuity during emergencies and critical situations.
 
-### প্রযুক্তি স্ট্যাক
+### Use Cases
 
-- **ব্যাকএন্ড:** Node.js
-- **ফ্রন্টএন্ড:** HTML, CSS, JavaScript
-- **রিয়েল-টাইম যোগাযোগ:** WebSocket / Socket.io
-- **আর্কিটেকচার:** ক্লায়েন্ট-সার্ভার মডেল
+#### Educational Institutions
 
-### ভবিষ্যৎ রোডম্যাপ
+Facilitates note sharing and discussions within campus or classroom environments. Students can easily exchange files and ideas with peers.
 
-প্রজেক্টটির উন্নয়নে বেশ কয়েকটি ধাপ পরিকল্পনা করা হয়েছে:
+#### Corporate Offices
 
-**ধাপ ২:** ফাইল শেয়ারিং (PDF, ছবি) এবং এন্ড-টু-এন্ড এনক্রিপশন যুক্ত করা।
+Enables secure internal file and message exchange even without internet connectivity. Protects sensitive organizational information.
 
-**ধাপ ৩:** এআই-চালিত অটো রেসপন্স (IRS) ও নেটিভ মোবাইল অ্যাপ তৈরি।
+#### Emergency Services
 
-**ধাপ ৪:** ভয়েস ও ভিডিও কলিং সুবিধা এবং সম্পূর্ণ একটি ইকোসিস্টেম গড়ে তোলা।
+Supports doctor-nurse communication in hospitals and coordination of rescue operations in disaster-affected areas. Enables rapid decision-making during critical situations.
 
-### উপসংহার
+#### Community Networks
 
-মেশটক কেবল একটি সফটওয়্যার নয়, এটি যোগাযোগের একটি নতুন দর্শন যা ডিজিটাল সার্বভৌমত্ব নিশ্চিত করে। একটি বিশ্বে যেখানে ডেটা গোপনীয়তা ক্রমবর্ধমান গুরুত্বপূর্ণ হয়ে উঠছে, মেশটক একটি শক্তিশালী সমাধান প্রদান করে যা সকলের জন্য নিরাপদ এবং সাশ্রয়ী যোগাযোগ নিশ্চিত করে।`,
+Perfect for neighborhood communication systems, local event coordination, and community resource sharing without external dependencies.
+
+### Technology Stack
+
+- **Backend:** Node.js
+- **Frontend:** HTML, CSS, JavaScript
+- **Real-time Communication:** WebSocket / Socket.io
+- **Architecture:** Client-Server Model
+- **Protocol:** TCP/IP over Local Network
+
+### Development Roadmap
+
+The project has several planned development phases:
+
+**Phase 2:** File sharing capabilities (PDF, images) and end-to-end encryption implementation.
+
+**Phase 3:** AI-powered auto-response system (IRS) and native mobile applications.
+
+**Phase 4:** Voice and video calling features with a complete ecosystem development.
+
+**Phase 5:** Integration with IoT devices and advanced network management features.
+
+### Technical Challenges and Solutions
+
+**Challenge:** Managing concurrent user connections efficiently
+**Solution:** Implemented connection pooling and optimized WebSocket event handling
+
+**Challenge:** Ensuring message delivery reliability
+**Solution:** Added acknowledgment system and message queuing mechanism
+
+**Challenge:** Network security within local environments
+**Solution:** Implemented token-based authentication and data encryption
+
+### Performance Metrics
+
+- **Average Message Latency:** < 50ms
+- **Concurrent Users Supported:** 500+
+- **File Transfer Speed:** Limited only by network bandwidth
+- **Uptime:** 99.9% (hardware dependent)
+
+### Conclusion
+
+MeshTalk is more than just software; it's a new philosophy of communication that ensures digital sovereignty. In an era where data privacy is increasingly critical, MeshTalk provides a powerful solution for secure and economical communication accessible to everyone. Whether for educational institutions, corporate offices, or emergency services, MeshTalk represents the future of local network communication.
+
+The platform demonstrates that effective communication doesn't always require global internet infrastructure. By leveraging local networks efficiently, we can create more resilient, private, and sustainable communication systems that serve the needs of modern society.`,
   },
   {
     id: 2,
@@ -448,34 +505,216 @@ export const BLOG_POSTS = [
     readTime: 8,
     featured: false,
     featuredImage: "/images/blog-telegram-bot-featured.jpg",
-    projectLink: "https://t.me/yeasin_ai_bot",
+    projectLink: "https://github.com/yeasin4745/telegram-ai-bot",
+    content: `## Building an AI-Powered Telegram Bot Using Node.js and Google Gemini API
+
+### Project Overview
+
+This article documents the complete development journey of creating an AI-powered Telegram bot that leverages Google's Gemini API. The bot processes natural language queries and provides intelligent responses in real-time.
+
+### Architecture Design
+
+The bot follows a modular architecture with clear separation of concerns:
+
+**Request Handler:** Receives messages from Telegram API
+**AI Engine:** Processes queries using Google Gemini API
+**Response Manager:** Formats and sends responses back to users
+**Error Handler:** Manages failures and edge cases
+
+### Key Implementation Details
+
+#### 1. Telegram Bot Setup
+
+Using the Telegram Bot API, we establish a webhook connection to receive updates from Telegram servers.
+
+#### 2. Google Gemini Integration
+
+The Gemini API provides state-of-the-art natural language understanding and generation capabilities.
+
+#### 3. Concurrent User Handling
+
+Implemented request queuing and connection pooling to handle multiple simultaneous users efficiently.
+
+#### 4. Error Management
+
+Comprehensive error handling ensures graceful degradation and informative user feedback.
+
+### Deployment Considerations
+
+The bot is deployed on Render, a modern cloud platform that provides:
+- Automatic scaling
+- Environment variable management
+- Continuous deployment from GitHub
+- 24/7 uptime monitoring
+
+### Performance Optimization
+
+- Response caching for common queries
+- Rate limiting to prevent abuse
+- Asynchronous processing for non-blocking operations
+- Database optimization for user data storage
+
+### Lessons Learned
+
+1. **API Rate Limits:** Always implement exponential backoff for API calls
+2. **User Experience:** Provide clear feedback for long-running operations
+3. **Security:** Validate all user inputs and sanitize data
+4. **Monitoring:** Implement comprehensive logging for debugging
+
+### Future Enhancements
+
+- Multi-language support
+- Advanced context management
+- Voice message processing
+- Integration with other AI models
+
+### Conclusion
+
+Building an AI-powered Telegram bot demonstrates the power of combining modern AI APIs with accessible messaging platforms. The project showcases practical implementation of production-ready code with real-world considerations.`,
+  },
+  {
+    id: 3,
+    title: "Machine Learning: House Price Prediction Using TensorFlow.js",
+    slug: "house-price-prediction-tensorflow",
+    summary: "Explore how to build a machine learning model for predicting house prices using TensorFlow.js. Learn data preprocessing, model training, evaluation, and deployment of ML models in the browser.",
+    category: "Machine Learning",
+    subcategory: "Data Science · Web Development",
+    publishedDate: "2026-01-20",
+    readTime: 6,
+    featured: false,
+    featuredImage: "/images/blog-house-price-featured.jpg",
+    projectLink: "https://github.com/yeasin4745/house-price-prediction",
+    content: `## Machine Learning: House Price Prediction Using TensorFlow.js
+
+### Introduction to the Project
+
+This project demonstrates building a machine learning model entirely in the browser using TensorFlow.js. The model predicts house prices based on various features like square footage, number of bedrooms, and location.
+
+### Data Preparation
+
+The first step involves collecting and preparing training data:
+
+**Data Collection:** Gathered real estate data from public datasets
+**Feature Engineering:** Selected relevant features affecting house prices
+**Normalization:** Scaled features to improve model training
+**Train-Test Split:** Divided data into training and testing sets
+
+### Model Architecture
+
+The neural network consists of:
+
+- **Input Layer:** Accepts multiple house features
+- **Hidden Layers:** Two dense layers with ReLU activation
+- **Output Layer:** Single neuron for price prediction
+
+### Training Process
+
+The model uses:
+- **Optimizer:** Adam optimizer for efficient convergence
+- **Loss Function:** Mean squared error for regression
+- **Epochs:** 100 iterations over the training data
+- **Batch Size:** 32 samples per batch
+
+### Model Evaluation
+
+Performance metrics include:
+- **Mean Absolute Error (MAE):** Average prediction error
+- **R-squared Score:** Proportion of variance explained
+- **Root Mean Squared Error (RMSE):** Standard deviation of residuals
+
+### Browser Deployment
+
+TensorFlow.js enables running the model directly in the browser:
+- No server-side computation required
+- Instant predictions for users
+- Privacy-preserving (data stays on client)
+- Reduced latency
+
+### Practical Applications
+
+- Real estate price estimation
+- Investment property analysis
+- Market trend analysis
+- Automated valuation models
+
+### Conclusion
+
+This project demonstrates that sophisticated machine learning models can run efficiently in modern web browsers, opening new possibilities for interactive ML applications.`,
   },
   {
     id: 4,
-    title: "Building a House Price Prediction Model in the Browser Using TensorFlow.js",
-    slug: "house-price-prediction-tensorflow",
-    summary: "This article explores how machine learning models can be trained and executed directly in the browser using TensorFlow.js. It demonstrates a practical house price prediction system built with JavaScript and statistical concepts without relying on a backend ML server.",
-    description: "Discover how to bring machine learning to the frontend without backend servers. This hands-on guide demonstrates building a neural network for real estate price prediction using TensorFlow.js. Learn about data normalization, model training, and interactive visualizations that run entirely in your browser.",
-    category: "AI / Machine Learning",
-    subcategory: "Case Study",
-    publishedDate: "2026-01-15",
-    readTime: 7,
-    featured: false,
-    featuredImage: "/images/blog-house-price-featured.jpg",
-    projectLink: "https://house-price-predction.netlify.app",
-  },
-  {
-    id: 5,
-    title: "Building a Real-Time Currency Converter Web App Using JavaScript",
-    slug: "currency-converter-javascript",
-    summary: "Discover how to build a modern, real-time currency converter web application using vanilla JavaScript and public APIs. This case study covers API integration, asynchronous programming, responsive UI design, and practical lessons from building a useful tool with a minimal tech stack.",
-    description: "Master the fundamentals of building practical web applications with vanilla JavaScript. This project demonstrates real-time API integration for live exchange rates, responsive mobile design, and error handling best practices. A perfect starter project for understanding modern web development without frameworks.",
+    title: "Building a Real-Time Currency Converter with React and Modern APIs",
+    slug: "currency-converter-react",
+    summary: "Create a real-time currency converter application using React and live exchange rate APIs. Learn about API integration, state management, and responsive UI design.",
     category: "Web Development",
-    subcategory: "Frontend · Case Study",
-    publishedDate: "2026-01-24",
-    readTime: 6,
+    subcategory: "React · Frontend · APIs",
+    publishedDate: "2026-01-18",
+    readTime: 4,
     featured: false,
     featuredImage: "/images/blog-currency-converter-featured.jpg",
-    projectLink: "https://yeasin4745.github.io/currency-converter/",
+    projectLink: "https://github.com/yeasin4745/currency-converter",
+    content: `## Building a Real-Time Currency Converter with React and Modern APIs
+
+### Project Concept
+
+A modern currency converter that fetches live exchange rates and provides instant conversion between multiple currencies with a beautiful, responsive interface.
+
+### Technology Stack
+
+- **Frontend Framework:** React
+- **Styling:** Tailwind CSS
+- **API:** Exchange Rate API
+- **State Management:** React Hooks
+- **Deployment:** GitHub Pages
+
+### Key Features
+
+#### 1. Real-Time Exchange Rates
+
+Fetches current exchange rates from a reliable API to ensure accuracy.
+
+#### 2. Multiple Currency Support
+
+Supports conversion between 150+ currencies worldwide.
+
+#### 3. Responsive Design
+
+Works seamlessly on desktop, tablet, and mobile devices.
+
+#### 4. Conversion History
+
+Maintains a history of recent conversions for quick reference.
+
+### Implementation Details
+
+**API Integration:** Uses fetch API to retrieve exchange rates
+**Error Handling:** Gracefully handles network failures and API errors
+**Caching:** Implements local caching to reduce API calls
+**User Interface:** Clean, intuitive design for easy conversion
+
+### Performance Optimization
+
+- Debounced API calls to prevent excessive requests
+- Memoization of exchange rate data
+- Lazy loading of currency lists
+- Optimized re-renders using React.memo
+
+### User Experience Features
+
+- Instant conversion as you type
+- Favorite currency pairs
+- Offline mode with cached rates
+- Dark mode support
+
+### Deployment Strategy
+
+The application is deployed on GitHub Pages with:
+- Automatic builds on push
+- Environment variable management
+- CDN distribution for fast loading
+
+### Conclusion
+
+This project showcases how to build practical, user-friendly applications that integrate with real-world APIs while maintaining excellent performance and user experience.`,
   },
 ];
