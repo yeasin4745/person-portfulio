@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { Frontend_skill, Backend_skill, DevTools, libraries } from "@shared/const";
 import TechStackAnimation from "./TechStackAnimation";
 import { useScrollTrigger } from "@/hooks/useScrollTrigger";
+import { SkillIcon } from "./SkillIcon";
 
 export default function Skills() {
   const { ref, inView } = useInView({
@@ -61,16 +62,19 @@ export default function Skills() {
         />
 
         <div className="relative mb-3 z-10">
-          <img
-            src={skill.Image}
-            alt={skill.skill_name}
-            width={skill.width}
-            height={skill.height}
-            className="group-hover:drop-shadow-[0_0_8px_rgba(0,217,255,0.6)] transition-all duration-300"
+          <div
             style={{
               filter: `drop-shadow(0 0 ${scrollProgress * 12}px rgba(0, 217, 255, ${scrollProgress * 0.5}))`,
             }}
-          />
+          >
+            <SkillIcon
+              src={skill.Image}
+              alt={skill.skill_name}
+              width={skill.width}
+              height={skill.height}
+              skillName={skill.skill_name}
+            />
+          </div>
         </div>
         <p className="text-gray-300 text-sm text-center font-medium relative z-10">
           {skill.skill_name}
