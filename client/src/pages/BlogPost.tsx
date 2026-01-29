@@ -4,6 +4,7 @@ import { ArrowLeft, Clock, Tag, ExternalLink } from "lucide-react";
 import { BLOG_POSTS } from "@shared/const";
 import { Streamdown } from "streamdown";
 import ShareButtons from "@/components/ShareButtons";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:slug");
@@ -115,6 +116,11 @@ export default function BlogPost() {
           url={typeof window !== "undefined" ? window.location.href : ""}
           description={post.summary}
         />
+
+        {/* Newsletter Signup */}
+        <div className="my-12 border-t border-b border-[#2D2847] py-12">
+          <NewsletterSignup />
+        </div>
 
         {/* Call to Action */}
         <motion.div
