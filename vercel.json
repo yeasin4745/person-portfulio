@@ -1,0 +1,76 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "env": {
+    "DATABASE_URL": {
+      "description": "MySQL database connection string",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT token signing",
+      "required": true
+    },
+    "VITE_APP_ID": {
+      "description": "Manus OAuth application ID",
+      "required": true
+    },
+    "OAUTH_SERVER_URL": {
+      "description": "Manus OAuth server URL",
+      "required": true
+    },
+    "VITE_OAUTH_PORTAL_URL": {
+      "description": "Manus OAuth portal URL for frontend",
+      "required": true
+    },
+    "OWNER_OPEN_ID": {
+      "description": "Owner's Manus OpenID",
+      "required": true
+    },
+    "OWNER_NAME": {
+      "description": "Owner's name",
+      "required": false
+    },
+    "BUILT_IN_FORGE_API_URL": {
+      "description": "Manus built-in API URL",
+      "required": true
+    },
+    "BUILT_IN_FORGE_API_KEY": {
+      "description": "Manus built-in API key",
+      "required": true
+    },
+    "VITE_FRONTEND_FORGE_API_URL": {
+      "description": "Frontend Manus API URL",
+      "required": true
+    },
+    "VITE_FRONTEND_FORGE_API_KEY": {
+      "description": "Frontend Manus API key",
+      "required": true
+    },
+    "VITE_ANALYTICS_ENDPOINT": {
+      "description": "Analytics endpoint URL",
+      "required": false
+    },
+    "VITE_ANALYTICS_WEBSITE_ID": {
+      "description": "Analytics website ID",
+      "required": false
+    },
+    "VITE_APP_TITLE": {
+      "description": "Website title",
+      "required": false
+    },
+    "VITE_APP_LOGO": {
+      "description": "Website logo URL",
+      "required": false
+    }
+  },
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "regions": ["iad1"],
+  "public": true
+}
