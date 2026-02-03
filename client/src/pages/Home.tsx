@@ -8,6 +8,10 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   return (
     <div className="min-h-screen w-full bg-[#030014] text-white overflow-x-hidden">
       <Navbar />

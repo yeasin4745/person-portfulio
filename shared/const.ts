@@ -1,5 +1,11 @@
-export const ONE_YEAR_MS = 1000 * 60 * 60 * 24 * 365;
 export const COOKIE_NAME = "auth_token";
+export const AXIOS_TIMEOUT_MS = 30000;
+export const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
+export const UNAUTHED_ERR_MSG = "UNAUTHORIZED";
+export const NOT_ADMIN_ERR_MSG = "Admin access required";
+export const INVALID_CREDENTIALS_ERR_MSG = "Invalid credentials";
+export const USER_NOT_FOUND_ERR_MSG = "User not found";
+export const INTERNAL_SERVER_ERROR_MSG = "Internal server error";
 
 // Personal Information
 export const PERSONAL_INFO = {

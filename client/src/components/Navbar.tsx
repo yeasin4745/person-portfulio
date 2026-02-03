@@ -10,13 +10,18 @@ export default function Navbar() {
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Blog", href: "#blog" },
+    { label: "Files", href: "/files" },
     { label: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/")) {
+      window.location.href = href;
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
   };

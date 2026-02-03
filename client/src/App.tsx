@@ -6,14 +6,16 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import BlogPost from "./pages/BlogPost";
+import FileManager from "./pages/FileManager";
 import ScrollToTop from "./components/ScrollToTop";
 
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/blog/:slug"} component={BlogPost} />
+      <Route path={"/files"} component={FileManager} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
