@@ -31,17 +31,13 @@ Thumbs.db
 
 # Testing
 coverage/
-.vitest/
 
 # Documentation
 README.md
 PORTFOLIO_ENHANCEMENT_PROMPT.md
-NETLIFY_DEPLOYMENT_GUIDE.md
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
+VERCEL_DEPLOYMENT_GUIDE.md
+VERCEL_DEPLOYMENT_STEPS.md
+ENVIRONMENT_VARIABLES_GUIDE.md
 
 # Misc
 .env
