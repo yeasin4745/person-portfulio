@@ -62,6 +62,11 @@ export const FEATURED_PROJECTS = [
 
 // Mini Projects
 export const MINI_PROJECTS = [
+{
+title:"Human face detection",
+link:"https://face-detection-system.vercel.app/"
+},
+
   {
     title: "GPA Calculator",
     link: "https://yeasin4745.github.io/GPA-Calculator",
