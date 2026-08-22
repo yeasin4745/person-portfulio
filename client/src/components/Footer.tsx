@@ -71,13 +71,8 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col items-center gap-3 text-center text-xs"
+          className="flex flex-col items-center text-center text-xs"
         >
-          <p className="text-gray-500">
-            Built with <span className="text-[#00D9FF]">React</span> +{" "}
-            <span className="text-[#A78BFA]">Framer Motion</span> +{" "}
-            <span className="text-[#00D9FF]">Tailwind CSS</span>
-          </p>
           <a
             href="https://yeasin4745.vercel.app/"
             target="_blank"

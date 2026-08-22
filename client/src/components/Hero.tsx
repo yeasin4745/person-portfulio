@@ -88,9 +88,14 @@ export default function Hero() {
             className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight"
           >
             Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.7, ease: "easeOut" }}
+              className="brand-gradient inline-block bg-gradient-to-r from-[#00D9FF] via-[#A78BFA] to-[#00D9FF] bg-clip-text text-transparent"
+            >
               {PERSONAL_INFO.name}
-            </span>
+            </motion.span>
           </motion.h1>
 
           <motion.div

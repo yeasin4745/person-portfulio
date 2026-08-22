@@ -82,10 +82,10 @@ export default function About() {
                 width={2048}
                 height={2012}
                 loading="lazy"
-                className={`w-full h-full object-cover object-[50%_44%] rounded-full transition-transform duration-500 ease-out motion-reduce:transition-none ${
+                className={`w-full h-full object-cover object-[50%_40%] rounded-full transition-transform duration-500 ease-out motion-reduce:transition-none ${
                   isPhotoZoomed
-                    ? "scale-110"
-                    : "scale-100 group-hover:scale-110"
+                    ? "scale-[1.2]"
+                    : "scale-[1.12] group-hover:scale-[1.2]"
                 }`}
               />
             </motion.button>

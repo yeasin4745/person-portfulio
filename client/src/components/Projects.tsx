@@ -3,7 +3,6 @@ import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github } from "lucide-react";
 import { FEATURED_PROJECTS, MINI_PROJECTS } from "@shared/const";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import CodingAnimation from "./CodingAnimation";
 import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 
 export default function Projects() {
@@ -73,8 +72,16 @@ export default function Projects() {
     },
   };
 
-  const ProjectCard = ({ project, index }: { project: typeof FEATURED_PROJECTS[0]; index: number }) => {
-    const { ref: cardRef, scrollProgress } = useScrollTrigger({ threshold: 0.3 });
+  const ProjectCard = ({
+    project,
+    index,
+  }: {
+    project: (typeof FEATURED_PROJECTS)[0];
+    index: number;
+  }) => {
+    const { ref: cardRef, scrollProgress } = useScrollTrigger({
+      threshold: 0.3,
+    });
 
     // Calculate scroll-based transformations
     const rotateX = (scrollProgress - 0.5) * 15;
@@ -159,8 +166,16 @@ export default function Projects() {
     );
   };
 
-  const MiniProjectLink = ({ project, index }: { project: typeof MINI_PROJECTS[0]; index: number }) => {
-    const { ref: cardRef, scrollProgress } = useScrollTrigger({ threshold: 0.3 });
+  const MiniProjectLink = ({
+    project,
+    index,
+  }: {
+    project: (typeof MINI_PROJECTS)[0];
+    index: number;
+  }) => {
+    const { ref: cardRef, scrollProgress } = useScrollTrigger({
+      threshold: 0.3,
+    });
 
     const scale = 0.95 + scrollProgress * 0.08;
     const opacity = 0.8 + scrollProgress * 0.2;
@@ -182,8 +197,13 @@ export default function Projects() {
         }}
         className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group"
       >
-        <span className="text-gray-300 group-hover:text-[#00D9FF] transition-colors">{project.title}</span>
-        <ExternalLink size={16} className="text-[#A78BFA] group-hover:text-[#00D9FF] transition-colors" />
+        <span className="text-gray-300 group-hover:text-[#00D9FF] transition-colors">
+          {project.title}
+        </span>
+        <ExternalLink
+          size={16}
+          className="text-[#A78BFA] group-hover:text-[#00D9FF] transition-colors"
+        />
       </motion.a>
     );
   };
@@ -194,13 +214,6 @@ export default function Projects() {
       ref={ref}
       className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden"
     >
-      {/* 3D Coding Animation Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <CodingAnimation />
-        {/* Overlay gradient to make content readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/70 via-[#030014]/50 to-[#030014]/70" />
-      </div>
-
       {/* Content */}
       <motion.div
         variants={containerVariants}
@@ -211,11 +224,15 @@ export default function Projects() {
         {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            My <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">Projects</span>
+            My{" "}
+            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] rounded-full" />
           <p className="text-gray-400 mt-4 max-w-2xl">
-            Here are some of my featured projects and mini projects that showcase my skills in web development, AI, and problem-solving.
+            Here are some of my featured projects and mini projects that
+            showcase my skills in web development, AI, and problem-solving.
           </p>
         </motion.div>
 

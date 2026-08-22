@@ -6,7 +6,6 @@ import {
   DevTools,
   libraries,
 } from "@shared/const";
-import TechStackAnimation from "./TechStackAnimation";
 import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 import { SkillIcon } from "./SkillIcon";
 
@@ -56,14 +55,14 @@ export default function Skills() {
       <motion.div
         ref={cardRef as any}
         variants={itemVariants}
-        whileHover={{ scale: 1.15, y: -8 }}
+        whileHover={{ scale: 1.08, y: -4 }}
         style={{
           rotateX: rotateX,
           rotateY: rotateY,
           scale: scale,
           opacity: opacity,
         }}
-        className="relative min-w-0 flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group cursor-pointer"
+        className="relative min-w-0 flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-lg bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group cursor-pointer"
       >
         {/* Glow effect on scroll */}
         <div
@@ -74,7 +73,7 @@ export default function Skills() {
           }}
         />
 
-        <div className="relative mb-3 z-10">
+        <div className="relative mb-2 z-10">
           <div
             style={{
               filter: `drop-shadow(0 0 ${scrollProgress * 12}px rgba(0, 217, 255, ${scrollProgress * 0.5}))`,
@@ -89,7 +88,7 @@ export default function Skills() {
             />
           </div>
         </div>
-        <p className="text-gray-300 text-xs sm:text-sm text-center font-medium break-words relative z-10">
+        <p className="text-gray-300 text-[11px] sm:text-xs text-center font-medium break-words relative z-10">
           {skill.skill_name}
         </p>
       </motion.div>
@@ -103,8 +102,8 @@ export default function Skills() {
     title: string;
     skills: typeof Frontend_skill;
   }) => (
-    <motion.div variants={itemVariants} className="mb-12">
-      <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+    <motion.div variants={itemVariants} className="mb-10">
+      <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center">
         <span className="w-2 h-2 bg-[#00D9FF] rounded-full mr-3" />
         {title}
       </h3>
@@ -112,7 +111,7 @@ export default function Skills() {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5"
+        className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10"
       >
         {skills.map((skill: (typeof Frontend_skill)[0], index: number) => (
           <SkillCard key={index} skill={skill} index={index} />
@@ -127,13 +126,6 @@ export default function Skills() {
       ref={ref}
       className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden"
     >
-      {/* 3D Tech Stack Animation Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <TechStackAnimation />
-        {/* Overlay gradient to make content readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/80 via-[#030014]/60 to-[#030014]/80" />
-      </div>
-
       {/* Content */}
       <motion.div
         variants={containerVariants}
