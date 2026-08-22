@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, Linkedin, Github, ExternalLink, Facebook, Twitter } from "lucide-react";
-import { PERSONAL_INFO, SOCIALS, CODING_PROFILES } from "@shared/const";
+import {
+  ExternalLink,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Twitter,
+} from "lucide-react";
+import { CODING_PROFILES, PERSONAL_INFO, SOCIALS } from "@shared/const";
 
 export default function Contact() {
   const { ref, inView } = useInView({
@@ -28,6 +35,10 @@ export default function Contact() {
     },
   };
 
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${PERSONAL_INFO.email}`;
+  };
+
   const getSocialIcon = (name: string) => {
     switch (name.toLowerCase()) {
       case "linkedin":
@@ -36,8 +47,6 @@ export default function Contact() {
         return <Github size={24} />;
       case "twitter":
         return <Twitter size={24} />;
-      case "facebook":
-        return <Facebook size={24} />;
       default:
         return <ExternalLink size={24} />;
     }
@@ -54,20 +63,21 @@ export default function Contact() {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-12 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Get in <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">Touch</span>
+            Get in{" "}
+            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+              Touch
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] rounded-full mx-auto" />
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+            I'm always interested in hearing about new projects and
+            opportunities. Feel free to reach out!
           </p>
         </motion.div>
 
-        {/* Contact Methods */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Email */}
+        <div className="grid gap-8 mb-12 md:grid-cols-2">
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
@@ -79,25 +89,26 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-white font-bold">Email</h3>
-                <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  className="text-[#00D9FF] hover:underline"
+                <button
+                  type="button"
+                  onClick={handleEmailClick}
+                  className="text-left text-[#00D9FF] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D9FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F0B2E] rounded"
+                  aria-label="Send me an email"
                 >
-                  {PERSONAL_INFO.email}
-                </a>
+                  Send me an email
+                </button>
               </div>
             </div>
           </motion.div>
 
-          {/* Location */}
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             className="p-6 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300"
           >
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#A78BFA] flex items-center justify-center" style={{backgroundColor: '#ffffff'}}>
-                <span className="text-[#030014] font-bold">🌍</span>
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#A78BFA] flex items-center justify-center">
+                <MapPin size={24} className="text-[#030014]" />
               </div>
               <div>
                 <h3 className="text-white font-bold">Location</h3>
@@ -107,18 +118,18 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Social Links */}
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h3 className="text-white font-bold mb-6">Connect with me</h3>
           <div className="flex justify-center gap-4 flex-wrap">
-            {SOCIALS.map((social: typeof SOCIALS[0], index: number) => (
+            {SOCIALS.map(social => (
               <motion.a
-                key={index}
+                key={social.name}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
                 title={social.name}
+                aria-label={social.name}
                 className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] flex items-center justify-center text-[#00D9FF] hover:text-white transition-all duration-300"
               >
                 {getSocialIcon(social.name)}
@@ -127,13 +138,14 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        {/* Coding Profiles */}
         <motion.div variants={itemVariants} className="text-center mb-12">
-          <h3 className="text-white font-bold mb-6">Problem Solving Profiles</h3>
+          <h3 className="text-white font-bold mb-6">
+            Problem Solving Profiles
+          </h3>
           <div className="flex justify-center gap-4 flex-wrap">
-            {CODING_PROFILES.map((profile, index) => (
+            {CODING_PROFILES.map(profile => (
               <motion.a
-                key={index}
+                key={profile.name}
                 href={profile.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -147,14 +159,15 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        {/* CTA Button */}
         <motion.div variants={itemVariants} className="text-center">
-          <a
-            href={`mailto:${PERSONAL_INFO.email}`}
-            className="inline-block px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105"
+          <button
+            type="button"
+            onClick={handleEmailClick}
+            className="inline-block px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D9FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030014]"
+            aria-label="Send me an email"
           >
             Send Me an Email
-          </a>
+          </button>
         </motion.div>
       </motion.div>
     </section>

@@ -3,21 +3,42 @@
 // Personal Information
 export const PERSONAL_INFO = {
   name: "Yeasin",
-  tagline: "Student | Programmer | AI Explorer",
+  tagline: "Full-Stack Developer | AI Explorer | Student",
   title: "Full Stack Developer & AI Enthusiast",
   email: "yeasin4745@proton.me",
-  bio: "Hello! I'm Yeasin, a passionate developer. I'm an aspiring Full Stack Developer and AI enthusiast currently studying and building my skills in modern web technologies.\n\nMy journey started with curiosity about websites and has evolved into a passion for creating innovative digital solutions.\n\nI believe in the power of technology to solve real-world problems and make a positive impact.\n\nWhen I'm not coding, I read tech blogs, contribute to open-source projects, or experiment with new frameworks and tools.",
+  bio: "Hello! I'm Yeasin, a Full-Stack Developer focused on building thoughtful web products across the frontend, backend, and the tooling that connects them. I work with React, TypeScript, Node.js, APIs, databases, and modern deployment platforms to turn ideas into dependable digital experiences.\n\nMy work combines product-minded frontend development with practical backend engineering, from responsive interfaces and accessible interactions to REST APIs, data workflows, and real-time features.\n\nI'm also exploring applied AI and machine learning through projects that solve concrete problems rather than treating emerging tools as a novelty.\n\nWhen I'm not coding, I study new engineering patterns, contribute to open-source projects, and experiment with technologies that help teams ship faster and more reliably.",
   yearsOfExperience: "2+",
-  quote: '"Code is like humor. When you have to explain it, it\'s bad." — Cory House',
+  quote:
+    '"Code is like humor. When you have to explain it, it\'s bad." — Cory House',
 };
 
 // Skills organized by category
 export const SKILLS_CATEGORIES = {
   "Core Web": ["HTML5", "CSS3", "JavaScript"],
-  "Backend": ["Node.js", "Express.js", "MongoDB", "Mongoose", "RESTful APIs", "JWT"],
-  "Frontend": ["React.js", "Tailwind CSS", "Next.js", "Framer Motion", "TypeScript"],
+  Backend: [
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "RESTful APIs",
+    "JWT",
+  ],
+  Frontend: [
+    "React.js",
+    "Tailwind CSS",
+    "Next.js",
+    "Framer Motion",
+    "TypeScript",
+  ],
   "AI/ML": ["TensorFlow.js", "Machine Learning", "Google Gemini API"],
-  "Tools & Platforms": ["Git", "GitHub", "Render", "VS Code", "Vercel", "Netlify"],
+  "Tools & Platforms": [
+    "Git",
+    "GitHub",
+    "Render",
+    "VS Code",
+    "Vercel",
+    "Netlify",
+  ],
 };
 
 // Featured Projects
@@ -34,7 +55,8 @@ export const FEATURED_PROJECTS = [
   {
     id: 2,
     title: "House Price Prediction",
-    description: "Machine learning model for predicting house prices using TensorFlow.js",
+    description:
+      "Machine learning model for predicting house prices using TensorFlow.js",
     stack: ["Statistics", "TensorFlow.js"],
     hosting: "Netlify",
     liveLink: "https://house-price-predction.netlify.app",
@@ -43,7 +65,8 @@ export const FEATURED_PROJECTS = [
   {
     id: 3,
     title: "Currency Converter",
-    description: "Real-time currency conversion with live exchange rates and modern UI",
+    description:
+      "Real-time currency conversion with live exchange rates and modern UI",
     stack: ["React", "API", "Tailwind CSS"],
     hosting: "GitHub Pages",
     liveLink: "https://yeasin4745.github.io/currency-converter/",
@@ -52,7 +75,8 @@ export const FEATURED_PROJECTS = [
   {
     id: 4,
     title: "TensorFlow Regression Visualizer",
-    description: "Interactive TensorFlow.js linear regression demo with glassmorphism UI",
+    description:
+      "Interactive TensorFlow.js linear regression demo with glassmorphism UI",
     stack: ["TensorFlow.js", "React", "Visualization"],
     hosting: "Netlify",
     liveLink: "https://linear-regression-model.netlify.app",
@@ -62,10 +86,10 @@ export const FEATURED_PROJECTS = [
 
 // Mini Projects
 export const MINI_PROJECTS = [
-{
-title:"Human face detection",
-link:"https://face-detection-system.vercel.app/"
-},
+  {
+    title: "Human face detection",
+    link: "https://face-detection-system.vercel.app/",
+  },
 
   {
     title: "GPA Calculator",
@@ -117,12 +141,6 @@ export const SOCIALS = [
     link: "https://twitter.com/yeasin4745",
     icon: "twitter",
   },
-  {
-    name: "Facebook",
-    src: "/images/facebook.svg",
-    link: "https://facebook.com/yeasin4745",
-    icon: "facebook",
-  },
 ];
 
 // Problem Solving Profiles
@@ -171,13 +189,13 @@ export const Skill_data = [
   },
   {
     skill_name: "Redux",
-    Image: "/images/redux.png",
+    Image: "/images/redux.svg",
     width: 80,
     height: 80,
   },
   {
     skill_name: "React Query",
-    Image: "/images/reactquery.png",
+    Image: "/images/reactquery.svg",
     width: 80,
     height: 80,
   },
@@ -201,19 +219,19 @@ export const Skill_data = [
   },
   {
     skill_name: "Stripe Payment",
-    Image: "/images/stripe.webp",
+    Image: "/images/stripe.svg",
     width: 80,
     height: 80,
   },
   {
     skill_name: "Node js",
-    Image: "/images/node-js.png",
+    Image: "/images/node-js.svg",
     width: 80,
     height: 80,
   },
   {
     skill_name: "Mongo db",
-    Image: "/images/mongodb.png",
+    Image: "/images/mongodb.svg",
     width: 40,
     height: 40,
   },
@@ -273,37 +291,37 @@ export const Frontend_skill = [
 export const Backend_skill = [
   {
     skill_name: "Node js",
-    Image: "/images/node-js.png",
+    Image: "/images/node-js.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Express js",
-    Image: "/images/express.png",
+    Image: "/images/express.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Mongo db",
-    Image: "/images/mongodb.png",
+    Image: "/images/mongodb.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Firebase",
-    Image: "/images/firebase.png",
+    Image: "/images/firebase.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Supabase",
-    Image: "/images/supabase.png",
+    Image: "/images/supabase.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "PostgreSQL",
-    Image: "/images/postgresql.png",
+    Image: "/images/postgresql.svg",
     width: 50,
     height: 50,
   },
@@ -312,7 +330,7 @@ export const Backend_skill = [
 export const DevTools = [
   {
     skill_name: "Git",
-    Image: "/images/git.png",
+    Image: "/images/git.svg",
     width: 50,
     height: 50,
   },
@@ -324,7 +342,7 @@ export const DevTools = [
   },
   {
     skill_name: "VS Code",
-    Image: "/images/vscode.png",
+    Image: "/images/vscode.svg",
     width: 50,
     height: 50,
   },
@@ -336,13 +354,13 @@ export const DevTools = [
   },
   {
     skill_name: "Docker",
-    Image: "/images/docker.png",
+    Image: "/images/docker.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Postman",
-    Image: "/images/postman.png",
+    Image: "/images/postman.svg",
     width: 50,
     height: 50,
   },
@@ -351,13 +369,13 @@ export const DevTools = [
 export const libraries = [
   {
     skill_name: "Redux",
-    Image: "/images/redux.png",
+    Image: "/images/redux.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "React Query",
-    Image: "/images/reactquery.png",
+    Image: "/images/reactquery.svg",
     width: 50,
     height: 50,
   },
@@ -369,13 +387,13 @@ export const libraries = [
   },
   {
     skill_name: "Socket.io",
-    Image: "/images/socketio.png",
+    Image: "/images/socketio.svg",
     width: 50,
     height: 50,
   },
   {
     skill_name: "Stripe",
-    Image: "/images/stripe.webp",
+    Image: "/images/stripe.svg",
     width: 50,
     height: 50,
   },
@@ -393,7 +411,8 @@ export const BLOG_POSTS = [
     id: 1,
     title: "MeshTalk: A New Era of Internet-Free Local Communication",
     slug: "meshtalk-offline-local-communication",
-    summary: "MeshTalk is a decentralized local network communication platform that enables fast, secure, and cost-effective communication between devices within a specific area without requiring global internet connectivity.",
+    summary:
+      "MeshTalk is a decentralized local network communication platform that enables fast, secure, and cost-effective communication between devices within a specific area without requiring global internet connectivity.",
     category: "Local Network Communication",
     subcategory: "Technology · Innovation",
     publishedDate: "2026-01-27",

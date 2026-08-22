@@ -30,9 +30,9 @@ export default function Blog() {
   };
 
   // Get the first featured post (most recent)
-  const featuredPost = BLOG_POSTS.find((post) => post.featured);
+  const featuredPost = BLOG_POSTS.find(post => post.featured);
   // Get all non-featured posts to display in grid
-  const otherPosts = BLOG_POSTS.filter((post) => !post.featured);
+  const otherPosts = BLOG_POSTS.filter(post => !post.featured);
 
   return (
     <section
@@ -48,11 +48,15 @@ export default function Blog() {
         {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            My <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">Blog</span>
+            My{" "}
+            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+              Blog
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] rounded-full" />
           <p className="text-gray-400 mt-4 max-w-2xl">
-            Technical articles, case studies, and insights about web development, AI, and software engineering.
+            Technical articles, case studies, and insights about web
+            development, AI, and software engineering.
           </p>
         </motion.div>
 
@@ -72,7 +76,7 @@ export default function Blog() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-60" />
-                  
+
                   {/* Featured Badge */}
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] text-xs font-bold rounded-full">
@@ -107,11 +111,14 @@ export default function Blog() {
                       {featuredPost.readTime} min read
                     </span>
                     <span>
-                      {new Date(featuredPost.publishedDate).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
+                      {new Date(featuredPost.publishedDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        }
+                      )}
                     </span>
                   </div>
 
@@ -138,7 +145,7 @@ export default function Blog() {
                 Explore other technical deep-dives and case studies
               </p>
             </div>
-            
+
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -160,7 +167,7 @@ export default function Blog() {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-50" />
-                      
+
                       {/* Category Badge Overlay */}
                       <div className="absolute top-3 left-3">
                         <span className="px-2.5 py-1 bg-[#00D9FF]/90 backdrop-blur-sm text-[#030014] text-xs font-semibold rounded-full flex items-center gap-1">
@@ -179,7 +186,7 @@ export default function Blog() {
 
                       {/* Description - New Feature */}
                       <p className="text-gray-400 text-sm mb-4 line-clamp-3 flex-grow">
-                        {post.description || post.summary}
+                        {post.summary}
                       </p>
 
                       {/* Meta Info */}
@@ -190,7 +197,11 @@ export default function Blog() {
                         </span>
                         <span className="flex items-center gap-1">
                           <Zap size={13} className="text-[#A78BFA]" />
-                          {post.readTime > 7 ? "Deep Dive" : post.readTime > 5 ? "Medium" : "Quick"}
+                          {post.readTime > 7
+                            ? "Deep Dive"
+                            : post.readTime > 5
+                              ? "Medium"
+                              : "Quick"}
                         </span>
                       </div>
 

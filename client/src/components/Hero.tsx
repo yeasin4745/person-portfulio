@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PERSONAL_INFO } from "@shared/const";
 
-const TAGLINE_WORDS = ["Student", "Programmer", "AI Explorer"];
+const TAGLINE_WORDS = ["Full-Stack Developer", "AI Explorer", "Student"];
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -21,10 +21,9 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Rotate tagline every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTaglineIndex((prev) => (prev + 1) % TAGLINE_WORDS.length);
+      setCurrentTaglineIndex(prev => (prev + 1) % TAGLINE_WORDS.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -56,7 +55,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -66,72 +64,77 @@ export default function Hero() {
             transition: "transform 0.3s ease-out",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/50 to-[#030014]" style={{height: '1000px'}} />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/50 to-[#030014]"
+          style={{ height: "1000px" }}
+        />
       </div>
 
-      {/* Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
       >
-        {/* Left Content */}
         <div className="flex-1 text-center lg:text-left">
-        {/* Greeting */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-block px-4 py-2 bg-[#0F0B2E] border border-[#00D9FF] rounded-full text-[#00D9FF] text-sm font-medium">
-            Welcome to my portfolio
-          </span>
-        </motion.div>
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-block px-4 py-2 bg-[#0F0B2E] border border-[#00D9FF] rounded-full text-[#00D9FF] text-sm font-medium">
+              Welcome to my portfolio
+            </span>
+          </motion.div>
 
-        {/* Main Heading */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight"
-        >
-          Hi, I'm <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">{PERSONAL_INFO.name}</span>
-        </motion.h1>
-
-        {/* Animated Tagline */}
-        <motion.div
-          variants={itemVariants}
-          className="mb-8 h-12 flex items-center justify-center"
-        >
-          <motion.p
-            key={currentTaglineIndex}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl sm:text-3xl font-semibold text-[#A78BFA]"
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight"
           >
-            {TAGLINE_WORDS[currentTaglineIndex]}
+            Hi, I&apos;m{" "}
+            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+              {PERSONAL_INFO.name}
+            </span>
+          </motion.h1>
+
+          <motion.div
+            variants={itemVariants}
+            className="mb-8 h-12 flex items-center justify-center lg:justify-start"
+          >
+            <motion.p
+              key={currentTaglineIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+              className="text-xl sm:text-3xl font-semibold text-[#A78BFA]"
+            >
+              {TAGLINE_WORDS[currentTaglineIndex]}
+            </motion.p>
+          </motion.div>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
+          >
+            I build polished frontend experiences, dependable backend systems,
+            and practical AI-powered products with modern web technologies.
           </motion.p>
-        </motion.div>
 
-        {/* Subtitle */}
-        <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
-        >
-          An aspiring Full Stack Developer and AI enthusiast building innovative digital solutions with modern web technologies.
-        </motion.p>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12"
+          >
+            <a
+              href="#projects"
+              className="px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105"
+            >
+              View My Work
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-3 border-2 border-[#00D9FF] text-[#00D9FF] font-bold rounded-lg hover:bg-[#00D9FF]/10 transition-all duration-300"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-        >
-          <button className="px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105">
-            View My Work
-          </button>
-          <button className="px-8 py-3 border-2 border-[#00D9FF] text-[#00D9FF] font-bold rounded-lg hover:bg-[#00D9FF]/10 transition-all duration-300">
-            Get in Touch
-          </button>
-        </motion.div>
-
-          {/* Scroll Indicator */}
           <motion.div
             variants={itemVariants}
             className="flex justify-center lg:justify-start"
@@ -146,15 +149,12 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Illustration */}
         <motion.div
           variants={itemVariants}
           className="flex-1 flex justify-center lg:justify-end"
         >
           <motion.div
-            animate={{
-              y: [0, -15, 0],
-            }}
+            animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="w-full max-w-md lg:max-w-full"
           >
@@ -167,7 +167,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Floating Elements */}
       <motion.div
         animate={{
           y: [0, -20, 0],

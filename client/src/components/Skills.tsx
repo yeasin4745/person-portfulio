@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Frontend_skill, Backend_skill, DevTools, libraries } from "@shared/const";
+import {
+  Frontend_skill,
+  Backend_skill,
+  DevTools,
+  libraries,
+} from "@shared/const";
 import TechStackAnimation from "./TechStackAnimation";
 import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 import { SkillIcon } from "./SkillIcon";
@@ -30,8 +35,16 @@ export default function Skills() {
     },
   };
 
-  const SkillCard = ({ skill, index }: { skill: (typeof Frontend_skill)[0]; index: number }) => {
-    const { ref: cardRef, scrollProgress } = useScrollTrigger({ threshold: 0.3 });
+  const SkillCard = ({
+    skill,
+    index,
+  }: {
+    skill: (typeof Frontend_skill)[0];
+    index: number;
+  }) => {
+    const { ref: cardRef, scrollProgress } = useScrollTrigger({
+      threshold: 0.3,
+    });
 
     // Calculate rotation based on scroll progress
     const rotateX = (scrollProgress - 0.5) * 20;
@@ -50,7 +63,7 @@ export default function Skills() {
           scale: scale,
           opacity: opacity,
         }}
-        className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group cursor-pointer"
+        className="relative min-w-0 flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] border border-[#2D2847] hover:border-[#00D9FF] transition-all duration-300 group cursor-pointer"
       >
         {/* Glow effect on scroll */}
         <div
@@ -76,14 +89,20 @@ export default function Skills() {
             />
           </div>
         </div>
-        <p className="text-gray-300 text-sm text-center font-medium relative z-10">
+        <p className="text-gray-300 text-xs sm:text-sm text-center font-medium break-words relative z-10">
           {skill.skill_name}
         </p>
       </motion.div>
     );
   };
 
-  const SkillCategory = ({ title, skills }: { title: string; skills: typeof Frontend_skill }) => (
+  const SkillCategory = ({
+    title,
+    skills,
+  }: {
+    title: string;
+    skills: typeof Frontend_skill;
+  }) => (
     <motion.div variants={itemVariants} className="mb-12">
       <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
         <span className="w-2 h-2 bg-[#00D9FF] rounded-full mr-3" />
@@ -93,7 +112,7 @@ export default function Skills() {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+        className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5"
       >
         {skills.map((skill: (typeof Frontend_skill)[0], index: number) => (
           <SkillCard key={index} skill={skill} index={index} />
@@ -125,11 +144,15 @@ export default function Skills() {
         {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            My <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">Skills</span>
+            My{" "}
+            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+              Skills
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] rounded-full" />
           <p className="text-gray-400 mt-4 max-w-2xl">
-            Over the years, I've developed expertise in a wide range of technologies and tools. Here's what I work with.
+            Over the years, I've developed expertise in a wide range of
+            technologies and tools. Here's what I work with.
           </p>
         </motion.div>
 

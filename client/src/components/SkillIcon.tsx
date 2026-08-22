@@ -1,21 +1,33 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
-  Code2,
-  GitBranch,
-  Github,
-  FileCode,
-  Palette,
-  Box,
-  Zap,
-  Database,
-  Cloud,
-  Cpu,
-  Layers,
-  Workflow,
-  Package,
-  Terminal,
-  Gauge,
-} from 'lucide-react';
+  SiAxios,
+  SiCss,
+  SiDocker,
+  SiExpress,
+  SiFigma,
+  SiFirebase,
+  SiFramer,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPostman,
+  SiReact,
+  SiReactquery,
+  SiRedux,
+  SiSocketdotio,
+  SiStripe,
+  SiSupabase,
+  SiTailwindcss,
+  SiTensorflow,
+  SiTypescript,
+  SiVscodium,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
 
 interface SkillIconProps {
   src: string;
@@ -25,41 +37,104 @@ interface SkillIconProps {
   skillName: string;
 }
 
-// Map skill names to Lucide icons
-const iconMap: Record<string, React.ReactNode> = {
-  'Node js': <Cpu className="w-full h-full" />,
-  'Express js': <Zap className="w-full h-full" />,
-  'Mongo db': <Database className="w-full h-full" />,
-  'Firebase': <Cloud className="w-full h-full" />,
-  'Supabase': <Cloud className="w-full h-full" />,
-  'PostgreSQL': <Database className="w-full h-full" />,
-  'Git': <GitBranch className="w-full h-full" />,
-  'GitHub': <Github className="w-full h-full" />,
-  'VS Code': <FileCode className="w-full h-full" />,
-  'Figma': <Palette className="w-full h-full" />,
-  'Docker': <Box className="w-full h-full" />,
-  'Postman': <Zap className="w-full h-full" />,
-  'Redux': <Layers className="w-full h-full" />,
-  'React Query': <Workflow className="w-full h-full" />,
-  'Axios': <Zap className="w-full h-full" />,
-  'Socket.io': <Gauge className="w-full h-full" />,
-  'Stripe': <Package className="w-full h-full" />,
-  'TensorFlow': <Cpu className="w-full h-full" />,
+const iconMap: Record<string, IconType> = {
+  "Html 5": SiHtml5,
+  Css: SiCss,
+  "Java Script": SiJavascript,
+  "Tailwind Css": SiTailwindcss,
+  React: SiReact,
+  Redux: SiRedux,
+  "React Query": SiReactquery,
+  "Type Script": SiTypescript,
+  "Next js": SiNextdotjs,
+  "Next js 13": SiNextdotjs,
+  "Framer Motion": SiFramer,
+  "Stripe Payment": SiStripe,
+  "Node js": SiNodedotjs,
+  "Express js": SiExpress,
+  "Mongo db": SiMongodb,
+  Firebase: SiFirebase,
+  Supabase: SiSupabase,
+  PostgreSQL: SiPostgresql,
+  Git: SiGit,
+  GitHub: SiGithub,
+  "VS Code": SiVscodium,
+  Figma: SiFigma,
+  Docker: SiDocker,
+  Postman: SiPostman,
+  Axios: SiAxios,
+  "Socket.io": SiSocketdotio,
+  Stripe: SiStripe,
+  TensorFlow: SiTensorflow,
 };
 
-export function SkillIcon({ src, alt, width, height, skillName }: SkillIconProps) {
+const iconColors: Record<string, string> = {
+  "Html 5": "#E34F26",
+  Css: "#1572B6",
+  "Java Script": "#F7DF1E",
+  "Tailwind Css": "#06B6D4",
+  React: "#61DAFB",
+  Redux: "#764ABC",
+  "React Query": "#FF4154",
+  "Type Script": "#3178C6",
+  "Next js": "#FFFFFF",
+  "Next js 13": "#FFFFFF",
+  "Framer Motion": "#FFFFFF",
+  "Stripe Payment": "#635BFF",
+  "Node js": "#5FA04E",
+  "Express js": "#FFFFFF",
+  "Mongo db": "#47A248",
+  Firebase: "#FFCA28",
+  Supabase: "#3ECF8E",
+  PostgreSQL: "#4169E1",
+  Git: "#F05032",
+  GitHub: "#FFFFFF",
+  "VS Code": "#22A8F2",
+  Figma: "#F24E1E",
+  Docker: "#2496ED",
+  Postman: "#FF6C37",
+  Axios: "#5A29E4",
+  "Socket.io": "#FFFFFF",
+  Stripe: "#635BFF",
+  TensorFlow: "#FF6F00",
+};
+
+export function SkillIcon({
+  src,
+  alt,
+  width,
+  height,
+  skillName,
+}: SkillIconProps) {
   const [imageError, setImageError] = useState(false);
+  const BrandIcon = iconMap[skillName];
 
-  // Get the fallback icon for this skill
-  const fallbackIcon = iconMap[skillName];
+  if (BrandIcon) {
+    return (
+      <div
+        aria-label={alt}
+        role="img"
+        style={{
+          width: `${width}px`,
+          height: `${height}px`,
+          color: iconColors[skillName],
+        }}
+        className="flex items-center justify-center transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]"
+      >
+        <BrandIcon className="w-full h-full" aria-hidden="true" />
+      </div>
+    );
+  }
 
-  if (imageError && fallbackIcon) {
+  if (imageError) {
     return (
       <div
         style={{ width: `${width}px`, height: `${height}px` }}
         className="flex items-center justify-center text-cyan-400"
+        role="img"
+        aria-label={alt}
       >
-        {fallbackIcon}
+        <span className="text-xs font-semibold text-center">{alt}</span>
       </div>
     );
   }
@@ -71,7 +146,7 @@ export function SkillIcon({ src, alt, width, height, skillName }: SkillIconProps
       width={width}
       height={height}
       onError={() => setImageError(true)}
-      className="group-hover:drop-shadow-[0_0_8px_rgba(0,217,255,0.6)] transition-all duration-300"
+      className="transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]"
     />
   );
 }

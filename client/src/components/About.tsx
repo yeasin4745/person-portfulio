@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 import { PERSONAL_INFO } from "@shared/const";
 
 export default function About() {
+  const [isPhotoZoomed, setIsPhotoZoomed] = useState(false);
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
@@ -38,46 +40,74 @@ export default function About() {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        {/* Section Title */}
         <motion.div variants={itemVariants} className="mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            About <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">Me</span>
+            About{" "}
+            <span className="bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] bg-clip-text text-transparent">
+              Me
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] rounded-full" />
         </motion.div>
 
-        {/* Content Grid */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Profile Image */}
-          <motion.div variants={itemVariants} className="relative flex justify-center">
-            <div className="relative w-full max-w-xs aspect-square rounded-full overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] p-1 border border-[#2D2847]">
+          <motion.div
+            variants={itemVariants}
+            className="relative flex justify-center"
+          >
+            <motion.button
+              type="button"
+              aria-label={
+                isPhotoZoomed
+                  ? "Reset Yeasin's profile photo zoom"
+                  : "Zoom Yeasin's profile photo"
+              }
+              aria-pressed={isPhotoZoomed}
+              onClick={() => setIsPhotoZoomed(zoomed => !zoomed)}
+              whileHover={{ scale: 1.03 }}
+              whileFocus={{ scale: 1.03 }}
+              className="group relative w-full max-w-xs aspect-square rounded-full overflow-hidden bg-gradient-to-br from-[#0F0B2E] to-[#1F1B3D] p-1 border border-[#2D2847] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D9FF] focus-visible:ring-offset-4 focus-visible:ring-offset-[#030014]"
+            >
+              <span
+                aria-hidden="true"
+                className={`pointer-events-none absolute inset-0 z-10 rounded-full border transition-all duration-500 ${
+                  isPhotoZoomed
+                    ? "border-[#00D9FF] shadow-[0_0_24px_rgba(0,217,255,0.55)]"
+                    : "border-transparent group-hover:border-[#00D9FF]/70 group-hover:shadow-[0_0_18px_rgba(0,217,255,0.35)]"
+                }`}
+              />
               <img
                 src="/images/profile.jpg"
-                alt="Yeasin's Profile"
-                className="w-full h-full object-cover rounded-full"
+                alt="Yeasin's profile"
+                width={2048}
+                height={2012}
+                loading="lazy"
+                className={`w-full h-full object-cover object-[50%_44%] rounded-full transition-transform duration-500 ease-out motion-reduce:transition-none ${
+                  isPhotoZoomed
+                    ? "scale-110"
+                    : "scale-100 group-hover:scale-110"
+                }`}
               />
-            </div>
-            {/* Floating accent */}
+            </motion.button>
             <motion.div
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-[#A78BFA]/30 to-[#00D9FF]/30 rounded-full blur-2xl"
+              className="pointer-events-none absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-[#A78BFA]/30 to-[#00D9FF]/30 rounded-full blur-2xl"
             />
           </motion.div>
 
-          {/* Right Side - Bio and Info */}
           <motion.div variants={itemVariants} className="space-y-6">
-            {/* Bio Paragraphs */}
             {PERSONAL_INFO.bio.split("\n\n").map((paragraph, index) => (
               <p key={index} className="text-gray-300 text-lg leading-relaxed">
                 {paragraph}
               </p>
             ))}
 
-            {/* Key Stats */}
             <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#2D2847]">
               <div>
-                <p className="text-[#00D9FF] font-bold text-2xl">2+</p>
+                <p className="text-[#00D9FF] font-bold text-2xl">
+                  {PERSONAL_INFO.yearsOfExperience}
+                </p>
                 <p className="text-gray-400 text-sm">Years of Experience</p>
               </div>
               <div>
@@ -90,14 +120,16 @@ export default function About() {
               </div>
               <div>
                 <p className="text-[#A78BFA] font-bold text-2xl">AI/ML</p>
-                <p className="text-gray-400 text-sm">Enthusiast</p>
+                <p className="text-gray-400 text-sm">Applied Exploration</p>
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button className="mt-8 px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105">
-              Download Resume
-            </button>
+            <a
+              href="#contact"
+              className="inline-block mt-8 px-8 py-3 bg-gradient-to-r from-[#00D9FF] to-[#A78BFA] text-[#030014] font-bold rounded-lg hover:shadow-lg hover:shadow-[#00D9FF]/50 transition-all duration-300 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D9FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030014]"
+            >
+              Let&apos;s Work Together
+            </a>
           </motion.div>
         </div>
       </motion.div>
