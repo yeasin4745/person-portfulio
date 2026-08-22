@@ -1,46 +1,8 @@
-# Dependencies
 node_modules/
 .pnpm-store/
-
-# Build outputs
 dist/
-build/
-.next/
-
-# Development
-.git
-.gitignore
-.env.local
-.env.*.local
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Testing
-coverage/
-
-# Documentation
-README.md
-PORTFOLIO_ENHANCEMENT_PROMPT.md
-VERCEL_DEPLOYMENT_GUIDE.md
-VERCEL_DEPLOYMENT_STEPS.md
-ENVIRONMENT_VARIABLES_GUIDE.md
-
-# Misc
+.git/
 .env
-.env.example
-.eslintignore
-.prettierignore
+.env.local
+*.log
+.DS_Store

@@ -3,5 +3,7 @@
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install",
   "framework": "vite",
-  "public": true
+  "outputDirectory": "dist",
+  "public": true,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
